@@ -1,0 +1,19 @@
+name: Transport for NSW Open Data Hub
+description: Transport for NSW Open Data Hub CKAN open-data API live-verification for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/opendata-transport-nsw-gov-au/refs/heads/main/review.yml
+created: '2026-06-04'
+modified: '2026-06-04'
+reviews:
+  - date: '2026-06-04'
+    rating: 4
+    summary: >-
+      Transport for NSW Open Data Hub runs CKAN and exposes a live, standardized open-data catalog API. The
+      endpoint was probed and returned a valid CKAN JSON response reporting approximately 230 datasets (CKAN version 2.11.3).
+      Because it runs CKAN, the full standard action/search API surface is available and consistent with all other CKAN portals.
+    endpoints:
+      - url: https://opendata.transport.nsw.gov.au/api/3/action/status_show
+        status: 200
+        note: Live CKAN API response verified during inventory probe.
+      - url: https://opendata.transport.nsw.gov.au
+        status: 200
+        note: Portal home.
