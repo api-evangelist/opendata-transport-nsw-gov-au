@@ -41,6 +41,10 @@ apis:
       - type: x-api-endpoint
         url: https://opendata.transport.nsw.gov.au/api/3/action/status_show
 common:
+  - type: VulnerabilityDisclosure
+    url: security/opendata-transport-nsw-gov-au-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/opendata-transport-nsw-gov-au-domain-security.yml
   - type: Website
     url: https://opendata.transport.nsw.gov.au
   - type: Documentation
@@ -53,6 +57,8 @@ common:
     url: finops/opendata-transport-nsw-gov-au-finops.yml
   - type: Review
     url: review.yml
+  - type: Blog
+    url: https://opendata.transport.nsw.gov.au/blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
