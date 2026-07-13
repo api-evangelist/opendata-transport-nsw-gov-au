@@ -1,0 +1,14 @@
+{
+  "repo": "opendata-transport-nsw-gov-au",
+  "feeds": [
+    {
+      "source": "https://opendata.transport.nsw.gov.au/blog",
+      "feed_url": "https://opendata.transport.nsw.gov.au/blog",
+      "title": "Transport for NSW Open Data Hub Blog",
+      "saved": 0,
+      "error": "parse_failed"
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 8
+}
