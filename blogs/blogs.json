@@ -4,14 +4,12 @@
     {
       "source": "https://opendata.transport.nsw.gov.au/blog",
       "feed_url": "https://opendata.transport.nsw.gov.au/blog",
-      "title": "Transport for NSW Open Data Hub Blog",
+      "title": "",
       "saved": 0,
-      "error": "parse_failed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:15:37Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 8,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
