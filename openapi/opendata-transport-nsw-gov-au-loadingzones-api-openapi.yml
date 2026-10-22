@@ -1,0 +1,97 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Loadingzones API
+  version: '1.0'
+  description: 'Operations tagged loadingzones across 2 of this provider''s published API definitions: loadingzones.json, opendata-transport-nsw-gov-au-loading-zones-kerbside-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/roads/static
+security:
+- APIKey: []
+tags:
+- name: loadingzones
+paths:
+  /loadingzones:
+    get:
+      tags:
+      - loadingzones
+      summary: Location of kerbside loading zones
+      operationId: GetLoadingzones
+      description: 'Location of Sydney CBD kerbside loading zones (for use by delivery vehicles when loading or unloading goods) by street and time of day (hourly) in JSON and XLS (MS Excel) formats
+
+
+        Please see the JSON documentation here: http://json.org/
+
+
+        Please review the data definition guide for Loading zone (kerbside) data: https://opendata.transport.nsw.gov.au/content/dam/apiportal/transportnsw/docs/TfNSW_LocFac_Op_Loadzone_OffStreet.pdf.'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/roads/static
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'Expected Format: apikey [TOKEN]'
+x-refined-from:
+- loadingzones.json
+- opendata-transport-nsw-gov-au-loading-zones-kerbside-openapi.yml

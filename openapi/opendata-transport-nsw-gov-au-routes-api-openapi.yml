@@ -1,0 +1,188 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Routes API
+  version: '1.0'
+  description: 'Operations tagged routes across 2 of this provider''s published API definitions: transport-route_2.yaml, opendata-transport-nsw-gov-au-transport-routes-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au
+security:
+- APIKey: []
+tags:
+- name: Routes
+paths:
+  /v1/routes:
+    get:
+      operationId: get-file-list
+      parameters:
+      - $ref: '#/components/parameters/route'
+      responses:
+        '200':
+          description: Request has been processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Transport Routes
+      tags:
+      - Routes
+    servers:
+    - url: https://api.transport.nsw.gov.au
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+    Response:
+      description: Successful response
+      example:
+        ROUTES:
+        - background_colour: XXXXXXXXXX
+          contract_id: XXXXXXXXXX
+          depot_name: XXXXXXXXXX
+          efa_route_name: XXXXXXXXXX
+          first_twitter_handle: XXXXXXXXXX
+          foreground_colour: XXXXXXXXXX
+          lp_contact_number: XXXXXXXXXX
+          lp_email: XXXXXXXXXX
+          lp_weekday_hours: XXXXXXXXXX
+          mot_for_interchange: XXXXXXXXXX
+          mot_for_interchange_id: XXXXXXXXXX
+          my_timetable_route_name: XXXXXXXXXX
+          operator_id: XXXXXXXXXX
+          operator_name: XXXXXXXXXX
+          region: XXXXXXXXXX
+          regional_trains: XXXXXXXXXX
+          route_search_name: XXXXXXXXXX
+          route_type: XXXXXXXXXX
+          route_variant_type: XXXXXXXXXX
+          second_twitter_handle: XXXXXXXXXX
+          service_direction_name: XXXXXXXXXX
+          start_date: XXXXXXXXXX
+          tariff_type: XXXXXXXXXX
+          text_colour: XXXXXXXXXX
+          transport_name: XXXXXXXXXX
+          transport_name_id: XXXXXXXXXX
+      properties:
+        ROUTE:
+          items:
+            properties:
+              background_colour:
+                type: string
+              contract_id:
+                type: string
+              depot_name:
+                type: string
+              efa_route_name:
+                type: string
+              first_twitter_handle:
+                type: string
+              foreground_colour:
+                type: string
+              lp_contact_number:
+                type: string
+              lp_email:
+                type: string
+              lp_weekday_hours:
+                type: string
+              mot_for_interchange:
+                type: string
+              mot_for_interchange_id:
+                type: string
+              my_timetable_route_name:
+                type: string
+              operator_id:
+                type: string
+              operator_name:
+                type: string
+              region:
+                type: string
+              regional_trains:
+                type: string
+              route_search_name:
+                type: string
+              route_type:
+                type: string
+              route_variant_type:
+                type: string
+              second_twitter_handle:
+                type: string
+              service_direction_name:
+                type: string
+              start_date:
+                type: string
+              tariff_type:
+                type: string
+              text_colour:
+                type: string
+              transport_name:
+                type: string
+              transport_name_id:
+                type: string
+            type: object
+          type: array
+      type: object
+  parameters:
+    route:
+      description: Route name to query
+      in: query
+      name: route
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- transport-route_2.yaml
+- opendata-transport-nsw-gov-au-transport-routes-openapi.yml

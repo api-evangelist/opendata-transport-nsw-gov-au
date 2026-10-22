@@ -1,0 +1,18 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/api-basics
+versioning:
+  scheme: url-path
+  current: v1
+  statement: "The 'v1' component of the URL is the API version number. If a new version of the API is ever released that is no longer backwards-compatible with the current interface, this version number will be changed. This is to ensure that any application designed to work with a particular version of the API will not be impacted by future releases."
+  note: Some individual feeds (GTFS realtime, GTFS schedule, toll calculator) are published as separate v1 and v2 datasets/contracts in openapi/.
+deprecation:
+  policy: null
+  note: No deprecation or sunset policy, and no Sunset/Deprecation headers, are documented. The legacy OAuth 2 method is described as "the old way of connecting to our APIs in the previous version of the gateway/portal" (troubleshooting page). No operation in openapi/ is marked deprecated.
+status_page: https://opendata.transport.nsw.gov.au/tfnsw-apistatus
+status_page_text: This page shows the status of API datasets available on the Open Data Hub and indicates whether the API is functioning
+data_updates: https://opendata.transport.nsw.gov.au/dataset-status
+sla: null
+release_notes:
+  docs: https://opendata.transport.nsw.gov.au/developers/documentation
+  note: Per-mode release notes and technical documentation are published as dated PDFs (e.g. Trip Planner API manual v3.3, 2026-04 upload path).

@@ -1,0 +1,106 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Info API
+  version: '1.0'
+  description: 'Operations tagged info across 2 of this provider''s published API definitions: taxirankapiswagger.yaml, opendata-transport-nsw-gov-au-taxi-rank-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/taxirank
+security:
+- APIKey: []
+tags:
+- name: Info
+paths:
+  /info:
+    get:
+      tags:
+      - Info
+      summary: Static data for taxi ranks eg. location, operating hours
+      operationId: info
+      description: 'This feed provides identifying information for one or more taxi ranks.
+
+
+        Information retuned includes location information and operating hours.
+
+
+        Providing the rankId parameter with a valid rank ID will return the data for that one rank.
+
+        Leaving the rankId parameter blank will return the live data for all stored taxi ranks.'
+      parameters:
+      - name: rankId
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/taxirank
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- taxirankapiswagger.yaml
+- opendata-transport-nsw-gov-au-taxi-rank-openapi.yml

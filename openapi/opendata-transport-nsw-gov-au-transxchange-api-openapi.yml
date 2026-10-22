@@ -1,0 +1,105 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Transxchange API
+  version: '1.0'
+  description: 'Operations tagged transxchange across 2 of this provider''s published API definitions: transxchange_swag_20190911_1.json, opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/publictransport/timetables/complete
+security:
+- APIKey: []
+tags:
+- name: transxchange
+paths:
+  /transxchange:
+    get:
+      tags:
+      - transxchange
+      summary: TransXChange (TXC) timetables and stops
+      operationId: GetTransxchange
+      description: 'Please see the TXC documentation here: http://www.transxchange.org.uk/
+
+
+        Note: Identifiers do not match the GTFS-realtime APIs and data.
+
+
+        Please review the TransXChange 2.4 release notes: https://opendata.transport.nsw.gov.au/content/dam/apiportal/tfnsw/docs/OD%20TXC_Data_release_notes_V_3_3_150629.docx
+
+        (2015-06-29).
+
+
+        The HEAD operation can be used to tell you if the content has changed (as GET may not return an HTTP 304 when no content has changed.)
+
+
+        For example, you may compare the Last-Modified header retrieved during a HEAD operation with the Last-Modified header retrieved during a previous GET operation. If the headers are the same, the content has not changed since the previous GET operation. If the headers are different, the content has changed since the previous GET operation.'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occurred.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/publictransport/timetables/complete
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'Expected Format: apikey [TOKEN]'
+x-refined-from:
+- transxchange_swag_20190911_1.json
+- opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml

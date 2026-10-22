@@ -1,0 +1,198 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Taxi Rank API
+host: api.transport.nsw.gov.au
+basePath: /v1/taxirank
+schemes:
+  - https
+security:
+-   APIKey: []
+securityDefinitions:
+    APIKey:
+        description: 'Expected Format: apikey [TOKEN]'
+        in: header
+        name: Authorization
+        type: apiKey
+consumes:
+  - '*/*'
+produces:
+  - application/json
+tags:
+  - name: realtime
+  - name: info
+  - name: history
+
+paths:
+  /realtime:
+    get:
+      tags:
+        - realtime
+      summary: Real time data for taxi ranks.
+      operationId: realtime
+      description: |-
+        This feed provides the number of passengers and taxis at one or several taxi ranks.
+
+        Providing the rankId parameter with a valid rank ID will return the data for that one rank.
+        Leaving the rankId parameter blank will return the live data for all stored taxi ranks.
+      produces: 
+              - application/json     
+      consumes: []
+      parameters: 
+        - name: rankId
+          in: query
+          required: false
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occurred.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /info:
+    get:
+      tags:
+        - info
+      summary: Static data for taxi ranks eg. location, operating hours.
+      operationId: info
+      description: |-
+        This feed provides identifying information for one or more taxi ranks.
+
+        Information retuned includes location information and operating hours.
+
+        Providing the rankId parameter with a valid rank ID will return the data for that one rank.
+        Leaving the rankId parameter blank will return the live data for all stored taxi ranks.
+      produces: 
+              - application/json      
+      consumes: []
+      parameters:
+        - name: rankId
+          in: query
+          required: false
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occurred.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /history:
+    get:
+      tags:
+        - history
+      summary: Historical data for taxi ranks.
+      operationId: history
+      description: |-
+        This feed provides 1 day's worth of historical occupancy data for 1 taxi rank in 15 minute increments.
+      produces: 
+              - application/json     
+      consumes: []
+      parameters:
+        - name: rankId
+          in: query
+          required: true
+          type: string
+          default: ''
+        - name: date
+          in: query
+          required: true
+          type: string
+          default: ''
+          description: 'Date in yyyy-mm-dd format.'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occurred.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+
+definitions:
+  ErrorDetails:
+    type: object
+    required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+    description: Error response
+    properties:
+      TransactionId:
+        type: string
+      ErrorDateTime:
+        type: string
+      Message:
+        type: string
+      RequestedUrl:
+        type: string
+      RequestedMethod:
+        type: string
+    example:
+      ErrorDetails:
+        TransactionId: XXXXXXXXXX
+        ErrorDateTime: XXXXXXXXXX
+        Message: XXXXXXXXXX
+        RequestedUrl: XXXXXXXXXX
+        RequestedMethod: XXXXXXXXXX

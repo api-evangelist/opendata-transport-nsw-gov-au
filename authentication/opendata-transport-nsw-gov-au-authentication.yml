@@ -1,0 +1,55 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/api-basics
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: APIKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Expected Format: apikey [TOKEN]'
+  sources:
+  - openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v1-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v1-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v2-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-gtfs-schedule-v2-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-historical-gtfs-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-historical-traffic-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-loading-zones-kerbside-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-location-facilities-operators-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-off-street-parking-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-rest-area-closures-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-rest-areas-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-traffic-volume-counts-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-transport-routes-openapi.yml
+  - openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+docs: https://opendata.transport.nsw.gov.au/developers/api-basics
+derived_from: openapi/ securitySchemes (derive-authentication.py)
+docs_notes:
+  header_format: 'When calling an endpoint, you specify your API key as an HTTP header called Authorization. For example, if your API key was
+    ak123, your request URL will include a header like: Authorization: apikey ak123'
+  key_issuance: Register for an account and log in to the Open Data Hub ... Select 'API Tokens', enter name in the text box and click 'CREATE
+    API TOKEN' to create new key
+  key_per_app: If you are developing multiple applications that will use the API, we request that you obtain a separate API key for each.
+  failure: 'If you do not specify an API token, or the value is incorrect, the API call will fail with: An HTTP status code of 401 (Unauthorized)'
+  legacy_oauth2: The OAuth 2 authentication method was the old way of connecting to our APIs in the previous version of the gateway/portal. ...
+    We now recommend that you only use the API key method of authentication, which is simpler and safer to use.
+docs_related:
+- https://opendata.transport.nsw.gov.au/developers/userguide
+- https://opendata.transport.nsw.gov.au/developers/troubleshooting

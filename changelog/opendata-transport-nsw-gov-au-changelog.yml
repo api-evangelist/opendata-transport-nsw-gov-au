@@ -1,0 +1,35 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/dataset-status
+scheme: dataset-activity-feed
+current_version: v1
+note: >-
+  The "Data Updates" page ("Below are the latest updates and changes to datasets, including the addition of new
+  datasets and the removal of obsolete ones.") is a JavaScript-rendered activity feed of DATASET changes, read with a
+  headless browser. It is not an API version changelog; API-level release notes are published as per-mode PDFs on
+  https://opendata.transport.nsw.gov.au/developers/documentation. Entries below are the most recent as rendered.
+entries:
+- version: null
+  date: '2026-10-19'
+  breaking: false
+  highlights: [Buses - On-time Running - Outer Sydney Metropolitan Bus Service Contracts on-time running results - Content of a resource has been updated]
+- version: null
+  date: '2026-10-19'
+  breaking: false
+  highlights: [Buses - On-time Running - Sydney Metropolitan Bus Service Contracts on-time running results - Content of a resource has been updated]
+- version: null
+  date: '2026-10-15'
+  breaking: false
+  highlights: [NSW TrainLink Regional Train And Coaches Statistics - NSW TrainLink Train And Coach Services - Content of a resource has been updated]
+- version: null
+  date: '2026-10-13'
+  breaking: false
+  highlights: [NSW TrainLink sales agent details - Content of a resource has been updated]
+- version: null
+  date: '2026-10-13'
+  breaking: false
+  highlights: [EV Charging Locations - EV Charging Locations in NSW - Content of a resource has been updated]
+- version: null
+  date: '2026-10-08'
+  breaking: false
+  highlights: [NSW Crash Data - NSW Road Crash Data - 2021-2025 - CRASH - Item has a new name]

@@ -1,0 +1,145 @@
+generated: '2026-10-21'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 7
+  other_domain: 3
+  platform: 0
+  roles:
+  - api
+  - data
+  - docs
+  - identity
+  - other
+  - website
+hosts:
+- host: api.ckan.org
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: ckan.org
+  role: api
+  relation: other-domain
+- host: api.gov.au
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: api.gov.au
+  role: api
+  relation: other-domain
+- host: api.np.transport.nsw.gov.au
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: nsw.gov.au
+  role: api
+  relation: own
+- host: api.nsw.gov.au
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Support
+  - Login
+  serves: []
+  registrable_domain: nsw.gov.au
+  role: identity
+  relation: own
+- host: api.transport.nsw.gov.au
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: nsw.gov.au
+  role: api
+  relation: own
+- host: data.nsw.gov.au
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: nsw.gov.au
+  role: data
+  relation: own
+- host: docs.ckan.org
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - x-ckan-api-documentation
+  serves:
+  - docs
+  - documentation
+  vendor: readthedocs
+  registrable_domain: ckan.org
+  role: docs
+  relation: other-domain
+- host: fuelcheck.nsw.gov.au
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: nsw.gov.au
+  role: other
+  relation: own
+- host: opendata.transport.nsw.gov.au
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - Blog
+  - DeveloperPortal
+  - Documentation
+  - GettingStarted
+  - FAQ
+  - StatusPage
+  - TermsOfService
+  - PrivacyPolicy
+  - License
+  - About
+  - x-data-catalog
+  - x-data-updates
+  serves:
+  - api
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: nsw.gov.au
+  role: website
+  relation: own
+- host: opendataforum.transport.nsw.gov.au
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Forum
+  serves: []
+  registrable_domain: nsw.gov.au
+  role: other
+  relation: own

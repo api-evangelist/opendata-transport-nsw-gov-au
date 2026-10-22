@@ -1,0 +1,175 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Gtfs API
+  version: '1.0'
+  description: 'Operations tagged Gtfs across 4 of this provider''s published API definitions: historical-gtfs.yaml, prod_fixed_gtfs_2.0.json, opendata-transport-nsw-gov-au-historical-gtfs-openapi.yml, opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au
+- url: https://api.transport.nsw.gov.au/v1/publictransport/timetables/complete
+security:
+- APIKey: []
+tags:
+- name: Gtfs
+paths:
+  /v1/gtfs/historical:
+    post:
+      operationId: get-file-list
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                filelist:
+                - https://tossdvshaodh002.blob.core.windows.net/$web/OpenData/FER/SydneyFerries/2020/10/07/FER_SydneyFerries_TripUpdate_20201007.csv?sv=2018-03-28&sr=b&sig=DbdKJrjTNN%2FGyd%2FylU8j3WBYzQocHDF2bu7nY6s0XFk%3D&se=2020-10-09T11%3A18%3A19Z&sp=r
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Get File List
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request'
+      tags:
+      - Gtfs
+    servers:
+    - url: https://api.transport.nsw.gov.au
+  /gtfs:
+    get:
+      description: 'Please see the General Transit Feed Specification (GTFS) documentation here: https://gtfs.org/
+
+
+        Returns ZIP file containing CSV files.
+
+
+        Note: Identifiers do not match the GTFS-realtime APIs and data.
+
+
+        Please review the GTFS release notes for ALL Greater Sydney transport operators (2015-06-29).
+
+
+        The HEAD operation can be used to tell you if the content has changed (as GET may not return an HTTP 304 when no content has changed.)
+
+
+        For example, you may compare the Last-Modified header retrieved during a HEAD operation with the Last-Modified header retrieved during a previous GET operation. If the headers are the same, the content has not changed since the previous GET operation. If the headers are different, the content has changed since the previous GET operation.'
+      operationId: GetSydPubTransGTFS
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: General Transit Feed Specification (GTFS) timetables, stops, and route shapes
+      tags:
+      - Gtfs
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/publictransport/timetables/complete
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+    request:
+      properties:
+        fromDate:
+          example: '2020-08-11'
+          type: string
+        schemaType:
+          example: TripUpdate
+          type: string
+        serviceName:
+          example: SydneyFerries
+          type: string
+        toDate:
+          example: '2020-10-11'
+          type: string
+        transportMode:
+          example: FER
+          type: string
+      required:
+      - transportMode
+      - serviceName
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- historical-gtfs.yaml
+- prod_fixed_gtfs_2.0.json
+- opendata-transport-nsw-gov-au-historical-gtfs-openapi.yml
+- opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml

@@ -1,0 +1,39 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/api-basics
+auth:
+  style: api-key header
+  header: 'Authorization: apikey <key>'
+  see: authentication/opendata-transport-nsw-gov-au-authentication.yml
+http:
+  base_url: https://api.transport.nsw.gov.au/v1/
+  statement: Most endpoints are called by using a single HTTP GET request, some taking named parameters in the query component of the URL.
+  response_types: 'If it is a successful response, the type of the response will vary depending on the API. The HTTP content type of the response will let you know the type.'
+  formats: [JSON, GTFS-realtime protocol buffers (binary), GTFS/TransXChange zip bundles]
+conditional_requests:
+  note: 'Some APIs return a last-modified header ... you may not get back an HTTP status of 304 (not modified). Instead, in some cases, you may need to use the HEAD HTTP method to retrieve the last-modified timestamp without retrieving the data.'
+  source: https://opendata.transport.nsw.gov.au/developers/troubleshooting
+polling:
+  note: The real-time files/APIs are updated once every 10 to 15 seconds, therefore we recommend you update real-time data every 15 seconds.
+idempotency:
+  coverage: na
+  note: The surface is read-only. 146 GET operations; the 5 POST operations (toll calculator route/match, historical GTFS file list, historical traffic data) are queries that compute or list data and create no resources. No Idempotency-Key mechanism is documented.
+reversibility:
+  coverage: na
+  note: Read-only API; there is no write surface to reverse.
+dry_run_mode:
+  coverage: na
+pagination:
+  note: No cross-cutting pagination convention is documented for the API Gateway.
+request_id:
+  field: ErrorDetails.TransactionId
+  note: Returned in the 401 error body example; no request-id header is documented.
+versioning:
+  style: url-path (v1)
+  see: lifecycle/opendata-transport-nsw-gov-au-lifecycle.yml
+errors:
+  see: errors/opendata-transport-nsw-gov-au-problem-types.yml
+rate_limit_signaling:
+  status: 403
+  header: X-Error-Detail
+  see: rate-limits/opendata-transport-nsw-gov-au-rate-limits.yml

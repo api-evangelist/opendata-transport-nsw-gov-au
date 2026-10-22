@@ -1,0 +1,106 @@
+definitions:
+    ErrorDetails:
+        description: Error response
+        example:
+            ErrorDetails:
+                ErrorDateTime: XXXXXXXXXX
+                Message: XXXXXXXXXX
+                RequestedMethod: XXXXXXXXXX
+                RequestedUrl: XXXXXXXXXX
+                TransactionId: XXXXXXXXXX
+        properties:
+            ErrorDateTime:
+                type: string
+            Message:
+                type: string
+            RequestedMethod:
+                type: string
+            RequestedUrl:
+                type: string
+            TransactionId:
+                type: string
+        required:
+        - TransactionId
+        - ErrorDateTime
+        - Message
+        - RequestedUrl
+        - RequestedMethod
+        type: object
+    request:
+        properties:
+            fromDate:
+                example: '2020-08-11'
+                type: string
+            schemaType:
+                example: TripUpdate
+                type: string
+            serviceName:
+                example: SydneyFerries
+                type: string
+            toDate:
+                example: '2020-10-11'
+                type: string
+            transportMode:
+                example: FER
+                type: string
+        required:
+        - transportMode
+        - serviceName
+        type: object
+host: api.transport.nsw.gov.au
+info:
+    description: Historical GTFS Data for Ferries, Metros and Light Rail
+    title: Historical GTFS Data
+    version: '1.0'
+paths:
+    /v1/gtfs/historical:
+        post:
+            consumes:
+            - application/json
+            operationId: get-file-list
+            parameters:
+            -   in: body
+                name: body
+                schema:
+                    $ref: '#/definitions/request'
+            produces:
+            - application/json
+            responses:
+                '200':
+                    description: ''
+                    examples:
+                        application/json:
+                            filelist:
+                            - https://tossdvshaodh002.blob.core.windows.net/$web/OpenData/FER/SydneyFerries/2020/10/07/FER_SydneyFerries_TripUpdate_20201007.csv?sv=2018-03-28&sr=b&sig=DbdKJrjTNN%2FGyd%2FylU8j3WBYzQocHDF2bu7nY6s0XFk%3D&se=2020-10-09T11%3A18%3A19Z&sp=r
+                '401':
+                    description: The application calling the API has not been authenticated.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '404':
+                    description: The requested resource could not be found.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '500':
+                    description: An internal error has occurred.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '503':
+                    description: The server is currently unavailable.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+            summary: Get File List
+schemes:
+- https
+security:
+-   APIKey: []
+securityDefinitions:
+    APIKey:
+        description: 'Expected Format: apikey [TOKEN]'
+        in: header
+        name: Authorization
+        type: apiKey
+swagger: '2.0'

@@ -1,0 +1,105 @@
+# x-archived-from: opendata-transport-nsw-gov-au-rest-areas-openapi.yml
+# x-archived-on: 2026-10-21
+basePath: /v1/roads
+consumes:
+- '*/*'
+definitions:
+  ErrorDetails:
+    description: Error response
+    example:
+      ErrorDetails:
+        ErrorDateTime: XXXXXXXXXX
+        Message: XXXXXXXXXX
+        RequestedMethod: XXXXXXXXXX
+        RequestedUrl: XXXXXXXXXX
+        TransactionId: XXXXXXXXXX
+    properties:
+      ErrorDateTime:
+        type: string
+      Message:
+        type: string
+      RequestedMethod:
+        type: string
+      RequestedUrl:
+        type: string
+      TransactionId:
+        type: string
+    required:
+    - TransactionId
+    - ErrorDateTime
+    - Message
+    - RequestedUrl
+    - RequestedMethod
+    type: object
+host: api.transport.nsw.gov.au
+info:
+  title: Rest Areas API
+  version: '1.0'
+paths:
+  /spatial:
+    get:
+      description: "Standard SQL is accepted including aggrate functions such as count, max, min. \n Order by and limit is also supported  <br> <br>\n \n <b>Some example queries are: </b> <br> \n SELECT * FROM rest_areas LIMIT 50  \n <br>\n <b>Current tables offered to users are: </b> <br> \n   rest_areas <br> \n   \n This API is based on PostgreSQL. \n You can view the <a href=\"http://www.postgresql.org/docs/9.1/static/\">official documentation</a> for further details on query syntax.\n"
+      parameters:
+      - default: geojson
+        description: Select format of the return data
+        enum:
+        - json
+        - geojson
+        in: query
+        name: format
+        required: false
+        type: string
+      - default: 'select * from rest_areas limit 50 '
+        description: Sql query you wish to execute
+        in: query
+        name: q
+        required: false
+        type: string
+      produces:
+      - application/json
+      - geojson
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          examples: {}
+          schema:
+            type: file
+        '401':
+          description: The application calling the API has not been authenticated.
+          examples: {}
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          examples: {}
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          examples: {}
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          examples: {}
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+      summary: Execute various queries on the Rest Areas API
+      tags:
+      - rest_areas
+produces:
+- application/zip
+schemes:
+- https
+security:
+- APIKey: []
+securityDefinitions:
+  APIKey:
+    description: 'Expected Format: apikey [TOKEN]'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: '2.0'
+tags:
+- name: rest_areas
+x-source-url: https://opendata.transport.nsw.gov.au/data/dataset/37a56f96-feb7-49c4-9a7d-06957ccf7368/resource/50e36649-fc87-46eb-b87a-43d4d8e2a14e/download/rest_areas_v2.1.yaml

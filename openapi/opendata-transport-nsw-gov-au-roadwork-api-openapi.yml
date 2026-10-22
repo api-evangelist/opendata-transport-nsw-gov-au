@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Roadwork API
+  version: '1.0'
+  description: 'Operations tagged roadwork across 2 of this provider''s published API definitions: livetraffichazarddata_2_1.json, opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/live/hazards
+security:
+- APIKey: []
+tags:
+- name: roadwork
+paths:
+  /roadwork/all:
+    get:
+      tags:
+      - roadwork
+      summary: Past, current and planned roadworks
+      operationId: GetAllRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/live/hazards
+  /roadwork/closed:
+    get:
+      tags:
+      - roadwork
+      summary: Past roadworks
+      operationId: GetClosedRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/live/hazards
+  /roadwork/open:
+    get:
+      tags:
+      - roadwork
+      summary: Current and planned roadworks
+      operationId: GetOpenRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/live/hazards
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'Expected Format: apikey [TOKEN]'
+x-refined-from:
+- livetraffichazarddata_2_1.json
+- opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml

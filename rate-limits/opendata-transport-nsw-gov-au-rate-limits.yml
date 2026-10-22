@@ -1,38 +1,41 @@
-# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-06-04 by the file itself), not
-# harvested from the provider. `method: generated` so the economics campaign may replace it with a
-# dated, verbatim transcription; every figure below is unverified until it does.
-method: generated
-generated: '2026-06-04'
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+name: Transport for NSW Open Data Hub rate limits
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/api-basics
 provider: Transport for NSW Open Data Hub
 providerId: opendata-transport-nsw-gov-au
-created: '2026-06-04'
-modified: '2026-06-04'
-reconciled: false
-tags:
-- Open Data
-- CKAN
-- Rate Limiting
-description: >-
-  Transport for NSW Open Data Hub does not publish a formal rate-limit table for its open-data catalog API. Clients
-  should paginate (rows/limit + start/offset), harvest politely, honor Retry-After, and use
-  OAI-PMH or bulk endpoints for large extracts.
-notes: No published limit; harvest responsibly.
-sources:
-- https://raw.githubusercontent.com/api-evangelist/opendata-transport-nsw-gov-au/refs/heads/main/apis.yml
-responseCodes:
-  throttled: 429
+gateway: https://api.transport.nsw.gov.au/v1/
+scope_note: All API endpoints within an API share the same limits.
+limit_count: 2
 limits:
-- name: Default
-  scope: client
-  metric: requests-per-minute
-  limit: see portal documentation
-  notes: No published global limit.
-policies:
-- name: Backoff Strategy
-  description: Exponential backoff with jitter; honor Retry-After.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- name: Throttle limit (Bronze Plan)
+  plan: Bronze Plan
+  kind: rate
+  scope: per-account
+  max: 5
+  window: 1 second
+  limit_text: 'Rate Limit: 5 per second'
+  on_exhaustion:
+    status: 403
+    header: X-Error-Detail
+    header_value: Account Over Rate Limit
+    body: '{"code": 403, "message": "Account over rate limit"}'
+- name: Quota limit (Bronze Plan)
+  plan: Bronze Plan
+  kind: quota
+  scope: per-account
+  max: 60000
+  window: 1 day
+  limit_text: 'Quota: 60,000 per day'
+  on_exhaustion:
+    status: 403
+    header: X-Error-Detail
+    header_value: Account Over Quota Limit
+    body: '{"code": 403, "message": "Account over rate limit"}'
+response_headers:
+- X-Error-Detail
+notes:
+- 'The docs also state: "You can also receive HTTP 401 status codes if you go over your limits."'
+- No X-RateLimit-* / RateLimit-* / Retry-After headers are documented.
+- 'Troubleshooting guidance: "The real-time files/APIs are updated once every 10 to 15 seconds, therefore we recommend you update real-time data every 15 seconds." (https://opendata.transport.nsw.gov.au/developers/troubleshooting)'
+- 'Increases: "If these limits are too restrictive for your application (or you go over your limit), please contact us about increasing your usage threshold."'

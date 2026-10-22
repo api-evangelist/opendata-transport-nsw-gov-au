@@ -1,0 +1,91 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Carpark Full List API
+  version: '1.0'
+  description: 'Operations tagged carpark-full-list across 2 of this provider''s published API definitions: carparkswagger_prod_2.yaml, opendata-transport-nsw-gov-au-car-park-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1
+security:
+- APIKey: []
+tags:
+- name: carpark-full-list
+paths:
+  /carpark/full-list:
+    get:
+      description: Returns occupancy details of all the car parks.
+      operationId: GetCarParkFull-list
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Full list of Parking spaces
+      tags:
+      - carpark-full-list
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- carparkswagger_prod_2.yaml
+- opendata-transport-nsw-gov-au-car-park-openapi.yml

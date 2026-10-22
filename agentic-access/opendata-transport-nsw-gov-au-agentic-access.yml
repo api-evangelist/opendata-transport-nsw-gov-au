@@ -1,0 +1,1533 @@
+generated: '2026-10-21'
+method: generated
+source: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml, openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v1-openapi.yml, openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v1-openapi.yml, openapi/opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v2-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml, openapi/opendata-transport-nsw-gov-au-gtfs-schedule-v2-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-historical-gtfs-openapi.yml, openapi/opendata-transport-nsw-gov-au-historical-traffic-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml, openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml, openapi/opendata-transport-nsw-gov-au-loading-zones-kerbside-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-location-facilities-operators-openapi.yml, openapi/opendata-transport-nsw-gov-au-off-street-parking-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-rest-area-closures-openapi.yml, openapi/opendata-transport-nsw-gov-au-rest-areas-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml, openapi/opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml, openapi/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml, openapi/opendata-transport-nsw-gov-au-traffic-volume-counts-openapi.yml,
+  openapi/opendata-transport-nsw-gov-au-transport-routes-openapi.yml, openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 151
+  by_action_class:
+    connected: 151
+  by_consequence:
+    read: 151
+  human_in_the_loop_required: 0
+operations:
+- path: /carpark
+  method: get
+  operationId: GetCarPark
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carpark/full-list
+  method: get
+  operationId: GetCarParkFull-list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /carpark/history
+  method: get
+  operationId: GetCarParkHistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /all
+  method: get
+  operationId: GetAll
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses
+  method: get
+  operationId: GetBuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries
+  method: get
+  operationId: GetFerries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail
+  method: get
+  operationId: GetLightRail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metro
+  method: get
+  operationId: Metro
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /nswtrains
+  method: get
+  operationId: GetNSWTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses
+  method: get
+  operationId: RegionBuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sydneytrains
+  method: get
+  operationId: SydneyTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses
+  method: get
+  operationId: GetBuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/sydneyferries
+  method: get
+  operationId: GetSydneyFerries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/MFF
+  method: get
+  operationId: GetMFF
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/cbdandsoutheast
+  method: get
+  operationId: GetLightRailCBDandSouthEast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/newcastle
+  method: get
+  operationId: GetLightRailNewcastle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/parramatta
+  method: get
+  operationId: GetLightRailParramatta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /nswtrains
+  method: get
+  operationId: GetNSWTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana
+  method: get
+  operationId: GetRegionCentralWestAndOrana
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana2
+  method: get
+  operationId: GetRegionCentralWestAndOrana2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/farwest
+  method: get
+  operationId: GetRegionFarWest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newcastlehunter
+  method: get
+  operationId: GetRegionNewcastleHunter
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newenglandnorthwest
+  method: get
+  operationId: GetRegionNewEnglandNorthWest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast
+  method: get
+  operationId: GetRegionBusesNorthCoast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast2
+  method: get
+  operationId: GetRegionBusesNorthCoast2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast3
+  method: get
+  operationId: GetRegionBusesNorthCoast3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray
+  method: get
+  operationId: GetRegionBusesRiverinaMurray
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray2
+  method: get
+  operationId: GetRegionRiverinaMurray2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands2
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/sydneysurrounds
+  method: get
+  operationId: GetRegionSydneySurrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sydneytrains
+  method: get
+  operationId: GetSydneyTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metro
+  method: get
+  operationId: GetSydneyMetro
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/innerwest
+  method: get
+  operationId: GetLightRailInnerwest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses
+  method: get
+  operationId: GetBuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/sydneyferries
+  method: get
+  operationId: GetSydneyFerries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/MFF
+  method: get
+  operationId: GetMFF
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/cbdandsoutheast
+  method: get
+  operationId: GetLightRailCBDandSouthEast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/newcastle
+  method: get
+  operationId: GetLightRailNewcastle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/parramatta
+  method: get
+  operationId: GetLightRailParramatta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /nswtrains
+  method: get
+  operationId: GetNSWTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana
+  method: get
+  operationId: GetRegionBusesCentralWestAndOrana
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana2
+  method: get
+  operationId: GetRegionBusesCentralWestAndOrana2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newenglandnorthwest
+  method: get
+  operationId: GetRegionBusesNewEnglandNorthwest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast
+  method: get
+  operationId: GetRegionBusesNorthCoast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast2
+  method: get
+  operationId: GetRegionBusesNorthCoast2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast3
+  method: get
+  operationId: GetRegionBusesNorthCoast3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray
+  method: get
+  operationId: GetRegionBusesRiverinaMurray
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray2
+  method: get
+  operationId: GetRegionRiverinaMurray2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands2
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/sydneysurrounds
+  method: get
+  operationId: GetRegionSydneySurrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newcastlehunter
+  method: get
+  operationId: GetRegionNewcastleHunter
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/farwest
+  method: get
+  operationId: GetRegionFarWest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sydneytrains
+  method: get
+  operationId: GetSydneyTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metro
+  method: get
+  operationId: GetSydneyMetro
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/innerwest
+  method: get
+  operationId: GetLightRailInnerwest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses
+  method: get
+  operationId: GetBuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/SBSC006
+  method: get
+  operationId: GetBusesSBSC006
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC001
+  method: get
+  operationId: GetBusesGSBC001
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC002
+  method: get
+  operationId: GetBusesGSBC002
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC003
+  method: get
+  operationId: GetBusesGSBC003
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC004
+  method: get
+  operationId: GetBusesGSBC004
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC007
+  method: get
+  operationId: GetBusesGSBC007
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC008
+  method: get
+  operationId: GetBusesGSBC008
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC009
+  method: get
+  operationId: GetBusesGSBC009
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC010
+  method: get
+  operationId: GetBusesGSBC010
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/GSBC014
+  method: get
+  operationId: GetBusesGSBC014
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC001
+  method: get
+  operationId: GetBusesOSMBSC001
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC002
+  method: get
+  operationId: GetBusesOSMBSC002
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC003
+  method: get
+  operationId: GetBusesOSMBSC003
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC004
+  method: get
+  operationId: GetBusesOSMBSC004
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OMBSC006
+  method: get
+  operationId: GetBusesOMBSC006
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OMBSC007
+  method: get
+  operationId: GetBusesOMBSC007
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC008
+  method: get
+  operationId: GetBusesOSMBSC008
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC009
+  method: get
+  operationId: GetBusesOSMBSC009
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC010
+  method: get
+  operationId: GetBusesOSMBSC010
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC011
+  method: get
+  operationId: GetBusesOSMBSC011
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/OSMBSC012
+  method: get
+  operationId: GetBusesOSMBSC012
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/NISC001
+  method: get
+  operationId: GetBusesNISC001
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/ReplacementBus
+  method: get
+  operationId: GetBusesReplacementBus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /buses/PCBC
+  method: get
+  operationId: GetBusesPCBCBus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/sydneyferries
+  method: get
+  operationId: GetSydneyFerries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ferries/MFF
+  method: get
+  operationId: GetMFF
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/innerwest
+  method: get
+  operationId: GetLightRailInnerwest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/newcastle
+  method: get
+  operationId: GetLightRailNewcastle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/cbdandsoutheast
+  method: get
+  operationId: GetLightRailCBDandSouthEast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lightrail/parramatta
+  method: get
+  operationId: GetLightRailParramatta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /nswtrains
+  method: get
+  operationId: GetNSWTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sydneytrains
+  method: get
+  operationId: GetSydneyTrains
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/southeasttablelands2
+  method: get
+  operationId: GetRegionBusesSouthEastTablelands2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast
+  method: get
+  operationId: GetRegionBusesNorthCoast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast2
+  method: get
+  operationId: GetRegionBusesNorthCoast2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana
+  method: get
+  operationId: GetRegionBusesCentralWestAndOrana
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/centralwestandorana2
+  method: get
+  operationId: GetRegionBusesCentralWestAndOrana2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray
+  method: get
+  operationId: GetRegionBusesRiverinaMurray
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newenglandnorthwest
+  method: get
+  operationId: GetRegionBusesNewEnglandNorthwest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/riverinamurray2
+  method: get
+  operationId: GetRegionRiverinaMurray2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/northcoast3
+  method: get
+  operationId: GetRegionNorthCoast3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/sydneysurrounds
+  method: get
+  operationId: GetRegionSydneySurrounds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/newcastlehunter
+  method: get
+  operationId: GetRegionNewcastleHunter
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regionbuses/farwest
+  method: get
+  operationId: GetRegionFarWest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metro
+  method: get
+  operationId: GetSydneyMetro
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/gtfs/historical
+  method: post
+  operationId: get-file-list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /traffic/historicaldata
+  method: post
+  operationId: GetHistoricalData
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cameras
+  method: get
+  operationId: GetTrafficCamera
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alpine/all
+  method: get
+  operationId: GetAllAlpine
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alpine/closed
+  method: get
+  operationId: GetClosedAlpine
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alpine/open
+  method: get
+  operationId: GetOpenAlpine
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fire/all
+  method: get
+  operationId: GetAllFire
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fire/closed
+  method: get
+  operationId: GetClosedFire
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fire/open
+  method: get
+  operationId: GetOpenFire
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /flood/all
+  method: get
+  operationId: GetAllFlood
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /flood/closed
+  method: get
+  operationId: GetClosedFlood
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /flood/open
+  method: get
+  operationId: GetOpenFlood
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /incident/all
+  method: get
+  operationId: GetAllTrafficIncidents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /incident/closed
+  method: get
+  operationId: GetClosedTrafficIncidents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /incident/open
+  method: get
+  operationId: GetOpenTrafficIncidents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /majorevent/all
+  method: get
+  operationId: GetAllMajorEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /majorevent/closed
+  method: get
+  operationId: GetClosedMajorEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /majorevent/open
+  method: get
+  operationId: GetOpenMajorEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /roadwork/all
+  method: get
+  operationId: GetAllRoadwork
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /roadwork/closed
+  method: get
+  operationId: GetClosedRoadwork
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /roadwork/open
+  method: get
+  operationId: GetOpenRoadwork
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional-lga-incident/all
+  method: get
+  operationId: GetAllRegionalLGAIncident
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional-lga-incident/closed
+  method: get
+  operationId: GetClosedRegionalLGAIncident
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional-lga-incident/open
+  method: get
+  operationId: GetOpenRegionalLGAIncident
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional-lga-participation/all
+  method: get
+  operationId: GetAllRegionalLGAParticipation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /status
+  method: get
+  operationId: GetTrafficSiteStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /loadingzones
+  method: get
+  operationId: GetLoadingzones
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /facilitiesandoperators
+  method: get
+  operationId: GetLocationfacilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /offstreetparking
+  method: get
+  operationId: GetOffStreetParking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rest_area_closures
+  method: get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /spatial
+  method: get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /realtime
+  method: get
+  operationId: realtime
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /info
+  method: get
+  operationId: info
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /history
+  method: get
+  operationId: history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /gtfs
+  method: get
+  operationId: GetSydPubTransGTFS
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /transxchange
+  method: get
+  operationId: GetTransxchange
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /toll_calc
+  method: post
+  operationId: getTollCostFromEncodedPolyUsingPOST
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /toll_calc/data
+  method: get
+  operationId: getData
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /toll_calc/match
+  method: post
+  operationId: getMatch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /toll_calc/route
+  method: post
+  operationId: getRoutes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /traffic_volume
+  method: get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/routes
+  method: get
+  operationId: get-file-list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /add_info
+  method: get
+  operationId: tfnsw_addinfo_request
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /coord
+  method: get
+  operationId: tfnsw_coord_request
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /departure_mon
+  method: get
+  operationId: tfnsw_dm_request
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /stop_finder
+  method: get
+  operationId: tfnsw_stopfinder_request
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /trip
+  method: get
+  operationId: tfnsw_trip_request2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

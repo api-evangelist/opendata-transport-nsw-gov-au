@@ -1,0 +1,97 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Status API
+  version: '1.0'
+  description: 'Operations tagged status across 2 of this provider''s published API definitions: livetrafficsitestatus_0.json, opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/live
+security:
+- APIKey: []
+tags:
+- name: Status
+paths:
+  /status:
+    get:
+      tags:
+      - Status
+      summary: Current status of the Live Traffic NSW website
+      operationId: GetTrafficSiteStatus
+      description: 'Please see the JSON documentation here: http://json.org/
+
+
+        Please review the Live Traffic Data Developer Guide: https://opendata.transport.nsw.gov.au/sites/default/files/Live_Traffic_Data_Developer_Guide.pdf.
+
+
+        Possible value is "AVAILABLE". All other values for Status indicates the Live Traffic site is offline.'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/live
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'Expected Format: apikey [TOKEN]'
+x-refined-from:
+- livetrafficsitestatus_0.json
+- opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml

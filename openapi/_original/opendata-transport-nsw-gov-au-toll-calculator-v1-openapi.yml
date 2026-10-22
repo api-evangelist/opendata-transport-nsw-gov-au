@@ -1,0 +1,111 @@
+# x-archived-from: opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+# x-archived-on: 2026-10-21
+basePath: /v1/roads
+definitions:
+  BadRequestResponse:
+    properties:
+      errorMessage:
+        example: Date out of range
+        type: string
+    required:
+    - errorMessage
+    type: object
+  Journey:
+    properties:
+      encodedPolyLine:
+        example: juanEa|wy[vG{|@d@cGR}ChBTbNbBdANTIRM`@kAbDuIbA{DVyBNiF@iDH{LGiCm@eDoA}C{AuByAoAuB_BwFmDqG_EeLiH{C{AiCi@aCI_CRqDlAeCnByB|C}BnDmAtA_C`BeD`AmCNyGg@}KqA}OoC{HaAsBOeH[sDIqO{AeJgAiT{DkUwCeP{BuM_BaF]yLqBcH}@_BIsAQoCWcHl@}IhB{D^eJj@qABwB]qAGmBMmEYoKo@wM_A}DEwCWgGiAwCg@aAAkCb@iCtAuBdCoAxDuAxF{ArDcB|Bc@^gAh@gATeBE{A]qDwAoCYoQ?yXr@qa@v@cD\gMjD{VfHsGxAqFXsIq@oO}AyHyAwEeBaD_B_CsAqDwAyFeAeDGgBFcDh@sBn@uC|AiB`B_C|CuAlEsChOkAzC{AnCyAlB{CpC{ClCyCvB}D|CeEtCcIrEaIjEiC~AwBvBwAvBcAbC_AfEWhD@zCX`Dl@|DxAjG`AlFz@pJN`J_@nK}BjPwB`PWdF?lGr@jNDlJYxGc@|D{CnPkCxQgC|UeAfHcB`HgBjFqCbGcIbNkDlI{D`MsClGuD~FqG~HyBfDyArCeBpEeD|JmAdCiBzC{BlCeC`CcCbBkEvBeEnAcDj@yHl@mEb@{G`BeDbAkCZqHNmLTqBX}DlAmBdAyBdBgBvBaB`CqRdZoPhWeD|F_AdCaBjGeArDo@xAkCdEkCfC}DnCgEnC}BnB{DpEmB|CiChEsAvCs@rB{AzF}@hFq@dIKtIZ~HnAtLlAtL@fGQpDuAtIuAvGS|BKxM?f^SpLsAhL}DxTgAbJu@lMw@vOy@|EcA`D_CrEuG~JqDfGeCdH{@~Du@pGO~FJlFv@xIjDlYlAxMxAbYnAhSl@pFdCbPjCpMvA|DlBjDnEjHbClE`AhCr@lCf@fDV`FCpDSzC{AzHkCbIu@bDm@bE[dF?xGn@pHz@jEnAvDtI|UbCzLbA~HfCb`@`BlUhAhKrGza@xF|ZxBhNtAtKfCr[b@bIx@jSSpGsA`K}AvFyAnDmClEkD`EuDzCmJjGeCvAsIrF_QtKsKrHoDtCoGxFaGjGoG|H_FbH{KhPaElGwIrOyElJwI~RsEfM{ItY}EnRkF~XaEhUi@jFsBfQ}@vEYr@]h@GPGb@i@MgAY_Cs@kDyAoLkEiIgDcDqA}A]{@DSNkAnDoApEmA`E[hBGhK?vL?dJZfFb@~BVvCPlG_@`FmAhLM`G[bFoApEo@rBc@bCiA`GaBfDgP`SaAxBs@~EBrJ?fDYnBe@lA
+        type: string
+      heavyVehicle:
+        example: false
+        type: boolean
+      journeyTime:
+        example: 25
+        format: int32
+        type: integer
+      travelDateTime:
+        format: date-time
+        type: string
+    required:
+    - encodedPolyLine
+    - travelDateTime
+    type: object
+  TollPrice:
+    properties:
+      cost:
+        example: 4.55
+        format: double
+        type: number
+      id:
+        example: 2
+        format: int32
+        type: integer
+      roadname:
+        example: M7
+        type: string
+      timeofDaytolling:
+        example: false
+        type: boolean
+    type: object
+  TotalCost:
+    properties:
+      breakdown:
+        items:
+          $ref: '#/definitions/TollPrice'
+        type: array
+      totalCost:
+        example: 13.66
+        format: double
+        type: number
+    type: object
+host: api.transport.nsw.gov.au
+info:
+  title: Toll Calculator
+  version: '1.0'
+paths:
+  /toll_calc:
+    post:
+      consumes:
+      - application/json
+      operationId: getTollCostFromEncodedPolyUsingPOST
+      parameters:
+      - description: Request object representing the journey
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Journey'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/TotalCost'
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/BadRequestResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Returns the toll cost breakdown for a journey
+      tags:
+      - pricing
+security:
+- APIKey: []
+securityDefinitions:
+  APIKey:
+    description: 'Expected Format: apikey [TOKEN]'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: '2.0'
+tags:
+- description: the pricing API
+  name: pricing-api-controller
+x-source-url: https://opendata.transport.nsw.gov.au/data/dataset/8c7872c3-d420-4415-b474-771900a9bb41/resource/62744e1d-b452-4f30-bf60-53d7466bc270/download/toll-calc-prod_7.yaml

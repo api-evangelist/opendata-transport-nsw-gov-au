@@ -1,0 +1,34 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/api-basics
+format: custom-json
+envelope:
+  description: >-
+    "The response, if it is a validation error, will be returned as JSON (JavaScript Object Notation) object."
+    Authentication failures use an ErrorDetails object; limit failures use a {code, message} object plus an
+    X-Error-Detail header. Not RFC 9457 problem+json.
+  auth_error_fields: [ErrorDetails.TransactionId, ErrorDetails.ErrorDateTime, ErrorDetails.Message, ErrorDetails.RequestedUrl, ErrorDetails.RequestMethod]
+  limit_error_fields: [code, message]
+problems:
+- status: 401
+  title: Unauthorized
+  type: null
+  description: 'If you do not specify an API token, or the value is incorrect, the API call will fail with: An HTTP status code of 401 (Unauthorized). Message: "The calling application is unauthenticated." The docs add: "You can also receive HTTP 401 status codes if you go over your limits."'
+  remediation: 'Pass the key as "Authorization: apikey <key>"; the troubleshooting page adds a 401 can mean "you have not selected the API you''re using in your application setup."'
+  source: https://opendata.transport.nsw.gov.au/developers/troubleshooting
+- status: 403
+  title: Account Over Rate Limit
+  type: null
+  description: 'When your go over your throttle limit, subsequent requests (within the same second) will fail with: An HTTP status code of 403 (Forbidden); X-Error-Detail: Account Over Rate Limit; {"code": 403, "message": "Account over rate limit"}'
+  remediation: Back off until the next second; poll real-time feeds no more than every 15 seconds.
+- status: 403
+  title: Account Over Quota Limit
+  type: null
+  description: 'When your go over your quota limit, subsequent requests (within the same day) will fail with: An HTTP status code of 403 (Forbidden); X-Error-Detail: Account Over Quota Limit'
+  remediation: Wait for the next day or contact TfNSW about increasing your usage threshold.
+- status: 304
+  title: Not Modified (conditional requests unreliable)
+  type: null
+  description: 'If you send this timestamp in an if-modified-since header, you may not get back an HTTP status of 304 (not modified). Instead, in some cases, you may need to use the HEAD HTTP method to retrieve the last-modified timestamp without retrieving the data.'
+  remediation: Use HEAD to read Last-Modified.
+  source: https://opendata.transport.nsw.gov.au/developers/troubleshooting

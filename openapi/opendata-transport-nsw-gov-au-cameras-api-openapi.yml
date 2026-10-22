@@ -1,0 +1,96 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Cameras API
+  version: '1.0'
+  description: 'Operations tagged cameras across 2 of this provider''s published API definitions: livetrafficcamera.json, opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/live
+security:
+- APIKey: []
+tags:
+- name: Cameras
+paths:
+  /cameras:
+    get:
+      tags:
+      - Cameras
+      summary: Image URL, GPS coordinates, and view description
+      operationId: GetTrafficCamera
+      description: 'Please see the GeoJSON documentation here:
+
+        http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide: /content/dam/apiportal/transportnsw/docs/Live_Traffic_Data_Developer_Guide.pdf.'
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/live
+components:
+  schemas:
+    ErrorDetails:
+      type: object
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      description: Error response
+      properties:
+        TransactionId:
+          type: string
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedUrl:
+          type: string
+        RequestedMethod:
+          type: string
+      example:
+        ErrorDetails:
+          TransactionId: XXXXXXXXXX
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'Expected Format: apikey [TOKEN]'
+x-refined-from:
+- livetrafficcamera.json
+- opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml

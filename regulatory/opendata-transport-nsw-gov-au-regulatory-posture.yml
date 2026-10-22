@@ -1,0 +1,75 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Privacy.pdf
+pages_read:
+- url: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Privacy.pdf
+  http_status: 200
+  note: Hub privacy notice (PDF), linked as "Privacy Policy" in the Hub footer.
+- url: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Open-Data-Portal-Terms.pdf
+  http_status: 200
+  note: Hub Terms (PDF), linked as "Terms" in the Hub footer. Clause 7 Privacy defers to the TfNSW privacy statement and policy; clause 9 covers termination and suspension by TfNSW.
+- url: https://opendata.transport.nsw.gov.au/datalicence
+  http_status: 200
+  note: Data licence page (CC BY 4.0); no regulatory-posture signals.
+- url: https://www.transport.nsw.gov.au/about-us/transport-privacy
+  http_status: 200
+  note: Parent agency privacy page, linked from the Hub privacy notice. A plain curl got 403; fetch-url.py's plain strategy got 200.
+- url: https://www.transport.nsw.gov.au/about-us/transport-privacy/data-breaches
+  http_status: 200
+- url: https://www.transport.nsw.gov.au/about-us/contact/accessibility
+  http_status: 200
+  note: >-
+    Not recorded as accessibility_conformance. The statement covers only transport.nsw.gov.au ("This
+    statement relates to content available on the Transport for NSW website (transport.nsw.gov.au).")
+    and does not mention the Open Data Hub. It also names no conformance level.
+signals:
+  data_subject_request:
+    url: https://www.transport.nsw.gov.au/about-us/transport-privacy
+    section: Access to and alteration of personal and health information
+    channel: privacy@transport.nsw.gov.au; Privacy Officer, Transport for NSW, PO Box K659 Haymarket NSW 1240
+    rights_named: [access, amendment, privacy complaint / internal review]
+    legal_basis: Privacy and Personal Information Protection Act 1998 (NSW)
+    escalation: NSW Privacy Commissioner, then the NSW Civil and Administrative Tribunal on appeal
+    evidence:
+    - source: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Privacy.pdf
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        Please see the Transport for NSW privacy policy available at
+        https://www.transport.nsw.gov.au/about-us/transport-privacy for more information on how we deal with
+        personal information, including how to make a privacy complaint, and how to access or amend your
+        personal information.
+    - source: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Privacy.pdf
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: The NSW Government's privacy practices are regulated by the Privacy and Personal Information Protection Act 1998 (NSW).
+    - source: https://www.transport.nsw.gov.au/about-us/transport-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: You have the right to access or change your own personal and health information.
+    note: >-
+      The Hub's own privacy notice points Hub users to the parent agency's access and amendment process. That
+      process uses PDF application forms (Access, Amendment) and a privacy-team email address. Complaints go to
+      internal review, and the NSW Privacy Commissioner is notified of each review. No response time is stated
+      on these pages, and no deletion or portability right is named. There is no API or self-service intake.
+  incident_notification:
+    url: https://www.transport.nsw.gov.au/about-us/transport-privacy/data-breaches
+    section: Data breaches
+    legal_basis: Part 6A of the Privacy and Personal Information Protection Act 1998 (NSW) (Mandatory Notification of Data Breach scheme)
+    evidence:
+    - source: https://www.transport.nsw.gov.au/about-us/transport-privacy/data-breaches
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: >-
+        Transport is required to manage eligible data breaches in accordance with Part 6A of the Privacy and
+        Personal Information Protection Act 1998 (NSW). Transport has notification obligations where there has
+        been an eligible data breach.
+    - source: https://www.transport.nsw.gov.au/about-us/transport-privacy/data-breaches
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: There have been no public notifications made for Transport for NSW, Sydney Trains or NSW Trains.
+    note: >-
+      This is the agency's statutory notification duty for personal-information breaches, with a published
+      Data Breach Policy (PDF) and a public notification register that currently has no entries. It is a
+      TfNSW-wide page, not one specific to the Hub. The Hub Terms SECURITY clause separately says "We do not guarantee the
+      security of the Hub." No notice period for API consumers is stated.

@@ -1,11 +1,18 @@
 aid: opendata-transport-nsw-gov-au
+
 name: Transport for NSW Open Data Hub
+
 description: >-
-  Transport for NSW Open Data Hub is a open data portal open-data portal for Australia running CKAN.
-  It exposes the CKAN catalog API, a standardized machine-readable interface over approximately 230 datasets,
-  supporting programmatic dataset search, metadata retrieval, and resource access. Because it runs CKAN, it shares a
-  consistent API surface with every other CKAN portal, making it uniformly harvestable and integrable.
+  The Transport for NSW Open Data Hub (opendata.transport.nsw.gov.au) is the central location for all Transport for NSW
+  open data, established in April 2016 at the Future Transport summit to replace the Transport Data Exchange (TDX)
+  program. It hosts over 200 datasets with more than 1000 resources (APIs, downloadable files, interactive maps and
+  insights), including GTFS and GTFS-realtime public transport feeds and Live Traffic NSW data, used by 35,700+
+  registered developers who have created 9000+ applications. The catalogue runs CKAN, exposing the standard CKAN Action
+  API for dataset search and metadata, alongside a developer portal with documentation, a user guide, API status, FAQs
+  and a community forum.
+
 kind: government
+
 deliveryModel:
   model: saas
   open_source: false
@@ -17,6 +24,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: free
   onboarding: unknown
@@ -29,8 +37,11 @@ accessModel:
   - plans
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/opendata-transport-nsw-gov-au.png
+
 url: https://raw.githubusercontent.com/api-evangelist/opendata-transport-nsw-gov-au/refs/heads/main/apis.yml
+
 tags:
   - Open Data
   - CKAN
@@ -39,38 +50,63 @@ tags:
   - Government Data
   - Open Data Portal
   - Australia
+
 created: '2026-06-04'
-modified: '2026-06-04'
+
+modified: '2026-10-21'
+
 specificationVersion: '0.23'
-apis:
-  - aid: opendata-transport-nsw-gov-au:catalog
-    name: Transport for NSW Open Data Hub CKAN Action API
-    description: >-
-      CKAN Action API for Transport for NSW Open Data Hub, a consistent JSON-over-HTTP interface over a catalog of 230 datasets. Standard actions include package_search, package_show, package_list, organization_list, group_list, tag_list, and resource_search; datastore_search is available where the DataStore extension is enabled. Base URL https://opendata.transport.nsw.gov.au/api/3/action/.
-    humanURL: https://opendata.transport.nsw.gov.au
-    baseURL: https://opendata.transport.nsw.gov.au/api/3/action
-    tags:
-      - CKAN
-      - Action API
-      - Open Data
-      - Catalog
-      - REST
-      - JSON
-    properties:
-      - type: Documentation
-        url: https://docs.ckan.org/en/latest/api/
-      - type: Website
-        url: https://opendata.transport.nsw.gov.au
-      - type: x-api-endpoint
-        url: https://opendata.transport.nsw.gov.au/api/3/action/status_show
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+
 common:
+  - type: AgenticAccess
+    url: agentic-access/opendata-transport-nsw-gov-au-agentic-access.yml
+  - type: Spectral
+    url: rules/opendata-transport-nsw-gov-au-rules.yml
+  - type: Vocabulary
+    url: vocabulary/opendata-transport-nsw-gov-au-vocabulary.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: DataModel
+    url: data-model/opendata-transport-nsw-gov-au-data-model.yml
+  - type: ChangeLog
+    url: changelog/opendata-transport-nsw-gov-au-changelog.yml
+  - type: Conventions
+    url: conventions/opendata-transport-nsw-gov-au-conventions.yml
+  - type: Security
+    url: security/opendata-transport-nsw-gov-au-vulnerability-disclosure.yml
+  - type: Lifecycle
+    url: lifecycle/opendata-transport-nsw-gov-au-lifecycle.yml
+  - type: ErrorCatalog
+    url: errors/opendata-transport-nsw-gov-au-problem-types.yml
+  - type: Conformance
+    url: conformance/opendata-transport-nsw-gov-au-conformance.yml
+  - type: Overlay
+    url: overlays/opendata-transport-nsw-gov-au-car-park-overlay.yaml
+  - type: LLMsTxt
+    url: llms/opendata-transport-nsw-gov-au-llms.txt
+  - type: Hosts
+    url: hosts/opendata-transport-nsw-gov-au-hosts.yml
+  - type: IntegrationEdges
+    url: integrations/opendata-transport-nsw-gov-au-integration-edges.yml
+  - type: Vendors
+    url: vendors/opendata-transport-nsw-gov-au-vendors.yml
+  - type: Support
+    url: https://api.nsw.gov.au/Support
+  - type: Login
+    url: https://api.nsw.gov.au/Account/Login
+  - type: Authentication
+    url: authentication/opendata-transport-nsw-gov-au-authentication.yml
   - type: VulnerabilityDisclosure
     url: security/opendata-transport-nsw-gov-au-vulnerability-disclosure.yml
   - type: DomainSecurity
     url: security/opendata-transport-nsw-gov-au-domain-security.yml
   - type: Website
     url: https://opendata.transport.nsw.gov.au
-  - type: Documentation
+  - type: x-ckan-api-documentation
     url: https://docs.ckan.org/en/latest/api/
   - type: Plans
     url: plans/opendata-transport-nsw-gov-au-plans-pricing.yml
@@ -82,6 +118,667 @@ common:
     url: review.yml
   - type: Blog
     url: https://opendata.transport.nsw.gov.au/blog
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - type: DeveloperPortal
+    url: https://opendata.transport.nsw.gov.au/developers
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/documentation
+  - type: GettingStarted
+    url: https://opendata.transport.nsw.gov.au/developers/userguide
+  - type: FAQ
+    url: https://opendata.transport.nsw.gov.au/faqs
+  - type: Forum
+    url: https://opendataforum.transport.nsw.gov.au
+  - type: StatusPage
+    url: https://opendata.transport.nsw.gov.au/tfnsw-apistatus
+  - type: TermsOfService
+    url: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Open-Data-Portal-Terms.pdf
+  - type: PrivacyPolicy
+    url: https://opendata.transport.nsw.gov.au/sites/default/files/2024-09/TfNSW-Privacy.pdf
+  - type: License
+    url: https://opendata.transport.nsw.gov.au/datalicence
+  - type: About
+    url: https://opendata.transport.nsw.gov.au/about
+  - type: x-data-catalog
+    url: https://opendata.transport.nsw.gov.au/data
+  - type: x-data-updates
+    url: https://opendata.transport.nsw.gov.au/dataset-status
+  - type: Email
+    url: mailto:OpenDataHelp@transport.nsw.gov.au
+
+apis:
+- aid: opendata-transport-nsw-gov-au:catalog
+  name: Transport for NSW Open Data Hub CKAN Action API
+  description: >-
+    CKAN Action API for Transport for NSW Open Data Hub, a consistent JSON-over-HTTP interface over a
+    catalog of 230 datasets. Standard actions include package_search, package_show, package_list, organization_list,
+    group_list, tag_list, and resource_search; datastore_search is available where the DataStore extension
+    is enabled. Base URL https://opendata.transport.nsw.gov.au/api/3/action/.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - CKAN
+  - Action API
+  - Open Data
+  - Catalog
+  - REST
+  - JSON
+  properties:
+  - type: Documentation
+    url: https://docs.ckan.org/en/latest/api/
+  - type: Website
+    url: https://opendata.transport.nsw.gov.au
+  - type: x-api-endpoint
+    url: https://opendata.transport.nsw.gov.au/api/3/action/status_show
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-add-info-api
+  name: Transport for NSW Open Data Hub Add Info API
+  description: The Add Info API from Transport for NSW Open Data Hub — 1 operation(s) for add info.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Add Info
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-add-info-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-all-api
+  name: Transport for NSW Open Data Hub All API
+  description: The all API from Transport for NSW Open Data Hub — 1 operation(s) for all.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - all
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-all-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-alpine-api
+  name: Transport for NSW Open Data Hub Alpine API
+  description: The alpine API from Transport for NSW Open Data Hub — 3 operation(s) for alpine.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - alpine
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-alpine-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-buses-api
+  name: Transport for NSW Open Data Hub Buses API
+  description: The buses API from Transport for NSW Open Data Hub — 25 operation(s) for buses.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - buses
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-buses-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-cameras-api
+  name: Transport for NSW Open Data Hub Cameras API
+  description: The cameras API from Transport for NSW Open Data Hub — 1 operation(s) for cameras.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - cameras
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-cameras-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-carpark-api
+  name: Transport for NSW Open Data Hub Carpark API
+  description: The carpark API from Transport for NSW Open Data Hub — 1 operation(s) for carpark.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - carpark
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-carpark-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-carpark-full-list-api
+  name: Transport for NSW Open Data Hub Carpark Full List API
+  description: >-
+    The carpark-full-list API from Transport for NSW Open Data Hub — 1 operation(s) for carpark-full-list.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - carpark-full-list
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-carpark-full-list-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-carparkhistory-api
+  name: Transport for NSW Open Data Hub Carparkhistory API
+  description: >-
+    The carparkhistory API from Transport for NSW Open Data Hub — 1 operation(s) for carparkhistory.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - carparkhistory
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-carparkhistory-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-coord-api
+  name: Transport for NSW Open Data Hub Coord API
+  description: The Coord API from Transport for NSW Open Data Hub — 1 operation(s) for coord.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Coord
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-coord-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-departure-mon-api
+  name: Transport for NSW Open Data Hub Departure Mon API
+  description: >-
+    The Departure Mon API from Transport for NSW Open Data Hub — 1 operation(s) for departure mon.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Departure Mon
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-departure-mon-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-facilitiesandoperators-api
+  name: Transport for NSW Open Data Hub Facilitiesandoperators API
+  description: >-
+    The facilitiesandoperators API from Transport for NSW Open Data Hub — 1 operation(s) for facilitiesandoperators.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - facilitiesandoperators
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-facilitiesandoperators-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-ferries-api
+  name: Transport for NSW Open Data Hub Ferries API
+  description: The ferries API from Transport for NSW Open Data Hub — 3 operation(s) for ferries.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - ferries
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-ferries-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-fire-api
+  name: Transport for NSW Open Data Hub Fire API
+  description: The fire API from Transport for NSW Open Data Hub — 3 operation(s) for fire.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - fire
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-fire-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-flood-api
+  name: Transport for NSW Open Data Hub Flood API
+  description: The flood API from Transport for NSW Open Data Hub — 3 operation(s) for flood.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - flood
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-flood-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-gtfs-api
+  name: Transport for NSW Open Data Hub Gtfs API
+  description: The Gtfs API from Transport for NSW Open Data Hub — 2 operation(s) for gtfs.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Gtfs
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-gtfs-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-historicaltraffic-api
+  name: Transport for NSW Open Data Hub Historical Traffic API
+  description: >-
+    The HistoricalTraffic API from Transport for NSW Open Data Hub — 1 operation(s) for historicaltraffic.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - HistoricalTraffic
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-historicaltraffic-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-history-api
+  name: Transport for NSW Open Data Hub History API
+  description: The history API from Transport for NSW Open Data Hub — 1 operation(s) for history.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - history
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-history-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-incident-api
+  name: Transport for NSW Open Data Hub Incident API
+  description: The incident API from Transport for NSW Open Data Hub — 3 operation(s) for incident.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - incident
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-incident-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-info-api
+  name: Transport for NSW Open Data Hub Info API
+  description: The info API from Transport for NSW Open Data Hub — 1 operation(s) for info.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - info
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-info-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-lightrail-api
+  name: Transport for NSW Open Data Hub Lightrail API
+  description: The lightrail API from Transport for NSW Open Data Hub — 5 operation(s) for lightrail.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - lightrail
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-lightrail-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-loadingzones-api
+  name: Transport for NSW Open Data Hub Loadingzones API
+  description: >-
+    The loadingzones API from Transport for NSW Open Data Hub — 1 operation(s) for loadingzones.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - loadingzones
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-loadingzones-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-majorevent-api
+  name: Transport for NSW Open Data Hub Majorevent API
+  description: The majorevent API from Transport for NSW Open Data Hub — 3 operation(s) for majorevent.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - majorevent
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-majorevent-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-metro-api
+  name: Transport for NSW Open Data Hub Metro API
+  description: The metro API from Transport for NSW Open Data Hub — 1 operation(s) for metro.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - metro
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-metro-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-nswtrains-api
+  name: Transport for NSW Open Data Hub Nswtrains API
+  description: The nswtrains API from Transport for NSW Open Data Hub — 1 operation(s) for nswtrains.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - nswtrains
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-nswtrains-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-offstreetparking-api
+  name: Transport for NSW Open Data Hub Offstreetparking API
+  description: >-
+    The offstreetparking API from Transport for NSW Open Data Hub — 1 operation(s) for offstreetparking.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - offstreetparking
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-offstreetparking-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-pricing-api
+  name: Transport for NSW Open Data Hub Pricing API
+  description: The pricing API from Transport for NSW Open Data Hub — 4 operation(s) for pricing.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - pricing
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-pricing-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-realtime-api
+  name: Transport for NSW Open Data Hub Realtime API
+  description: The realtime API from Transport for NSW Open Data Hub — 1 operation(s) for realtime.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - realtime
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-realtime-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-regional-lga-incident-api
+  name: Transport for NSW Open Data Hub Regional Lga Incident API
+  description: >-
+    The regional-lga-incident API from Transport for NSW Open Data Hub — 3 operation(s) for regional-lga-incident.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - regional-lga-incident
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-regional-lga-incident-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: >-
+    opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-regional-lga-participation-api
+  name: Transport for NSW Open Data Hub Regional Lga Participation API
+  description: >-
+    The regional-lga-participation API from Transport for NSW Open Data Hub — 1 operation(s) for regional-lga-participation.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - regional-lga-participation
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-regional-lga-participation-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-regionbuses-api
+  name: Transport for NSW Open Data Hub Regionbuses API
+  description: >-
+    The regionbuses API from Transport for NSW Open Data Hub — 14 operation(s) for regionbuses.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - regionbuses
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-regionbuses-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-rest-area-closures-api
+  name: Transport for NSW Open Data Hub Rest Area Closures API
+  description: >-
+    The rest_area_closures API from Transport for NSW Open Data Hub — 1 operation(s) for rest_area_closures.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - rest_area_closures
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-rest-area-closures-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-rest-areas-api
+  name: Transport for NSW Open Data Hub Rest Areas API
+  description: The rest_areas API from Transport for NSW Open Data Hub — 1 operation(s) for rest_areas.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - rest_areas
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-rest-areas-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-roadwork-api
+  name: Transport for NSW Open Data Hub Roadwork API
+  description: The roadwork API from Transport for NSW Open Data Hub — 3 operation(s) for roadwork.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - roadwork
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-roadwork-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-routes-api
+  name: Transport for NSW Open Data Hub Routes API
+  description: The routes API from Transport for NSW Open Data Hub — 1 operation(s) for routes.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - routes
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-routes-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-status-api
+  name: Transport for NSW Open Data Hub Status API
+  description: The status API from Transport for NSW Open Data Hub — 1 operation(s) for status.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - status
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-status-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-stop-finder-api
+  name: Transport for NSW Open Data Hub Stop Finder API
+  description: >-
+    The Stop Finder API from Transport for NSW Open Data Hub — 1 operation(s) for stop finder.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Stop Finder
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-stop-finder-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-sydneymetro-api
+  name: Transport for NSW Open Data Hub Sydneymetro API
+  description: >-
+    The sydneymetro API from Transport for NSW Open Data Hub — 1 operation(s) for sydneymetro.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - sydneymetro
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-sydneymetro-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-sydneytrains-api
+  name: Transport for NSW Open Data Hub Sydneytrains API
+  description: >-
+    The sydneytrains API from Transport for NSW Open Data Hub — 1 operation(s) for sydneytrains.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - sydneytrains
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-sydneytrains-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-traffic-volume-api
+  name: Transport for NSW Open Data Hub /traffic Volume API
+  description: >-
+    The /traffic_volume API from Transport for NSW Open Data Hub — 1 operation(s) for /traffic_volume.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - /traffic_volume
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-traffic-volume-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-transxchange-api
+  name: Transport for NSW Open Data Hub Transxchange API
+  description: >-
+    The transxchange API from Transport for NSW Open Data Hub — 1 operation(s) for transxchange.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - transxchange
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-transxchange-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+- aid: opendata-transport-nsw-gov-au:opendata-transport-nsw-gov-au-trip-api
+  name: Transport for NSW Open Data Hub Trip API
+  description: The Trip API from Transport for NSW Open Data Hub — 1 operation(s) for trip.
+  humanURL: https://opendata.transport.nsw.gov.au
+  baseURL: https://opendata.transport.nsw.gov.au/api/3/action
+  tags:
+  - Trip
+  properties:
+  - type: OpenAPI
+    url: openapi/opendata-transport-nsw-gov-au-trip-api-openapi.yml
+  - type: Documentation
+    url: https://opendata.transport.nsw.gov.au/developers/api-basics
+  - type: Protobuf
+    url: grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto
+x-coverage:
+  state: covered
+  reason: enriched
+  detail: Identity verified against the hub's own pages (title "Transport Open Data", About page); all pointers fetched 2026-10-21. api.nsw.gov.au links in the dossier were not adopted because the hub does not link that portal. Login/Register pages not probed (auth endpoints).
+  evidence:
+  - {url: https://opendata.transport.nsw.gov.au, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/about, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/developers, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/developers/documentation, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/developers/userguide, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/faqs, status: 200}
+  - {url: https://opendataforum.transport.nsw.gov.au, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/tfnsw-apistatus, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/datalicence, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/blog, status: 200}
+  - {url: https://opendata.transport.nsw.gov.au/forum, status: 404}
+x-enrichment:
+  date: '2026-10-21'
+  status: enriched
+  artifacts_added: 105
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

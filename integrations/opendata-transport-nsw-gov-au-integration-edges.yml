@@ -1,0 +1,149 @@
+generated: '2026-10-21'
+method: searched
+source:
+- https://zapier.com/apps/opendata-transport-nsw-gov-au/integrations
+- https://zapier.com/apps/transport-for-nsw-open-data-hub/integrations
+- https://n8n.io/integrations/opendata-transport-nsw-gov-au/
+- https://composio.dev/toolkits/opendata-transport-nsw-gov-au
+- https://monid.ai/tools/opendata-transport-nsw-gov-au
+- https://opendata.transport.nsw.gov.au/endorsed-apps
+checked:
+- https://composio.dev/toolkits/opendata-transport-nsw-gov-au
+- https://monid.ai/tools/opendata-transport-nsw-gov-au
+- https://n8n.io/integrations/opendata-transport-nsw-gov-au/
+- https://zapier.com/apps/opendata-transport-nsw-gov-au/integrations
+- https://zapier.com/apps/transport-for-nsw-open-data-hub/integrations
+- https://opendata.transport.nsw.gov.au/endorsed-apps
+summary: 16 third-party apps listed on the TfNSW Endorsed Apps page ("The endorsed apps ecosystem has been developed
+  using the open data catalogue"). No marketplace listings (Zapier, n8n, Make) were found.
+marketplace_apps: []
+edges:
+- builder: Eat More Pixels
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Virtuous Cycle
+- builder: Tern Commute
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Tern
+- builder: Party Onbici
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Party Onbici
+- builder: Eat More Pixels
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Roundtrip
+- builder: Gourmakers
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Gourmakers
+- builder: Citymapper Limited
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Citymapper
+- builder: TripTech
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Campermate
+- builder: OzPoint
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Easydrop
+- builder: TransitApp, Inc.
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Transit
+- builder: Moovit
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Moovit
+- builder: AppJourney Pty Ltd
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Triptastic
+- builder: Momego
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Momego
+- builder: TripView Pty Ltd
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Tripview
+- builder: AppJourney Pty Ltd
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Nextthere
+- builder: Jxeeno Pty Ltd
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Anytrip
+- builder: Deckee
+  partner: null
+  type: claimed
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://opendata.transport.nsw.gov.au/endorsed-apps
+  partner_name: Deckee
+templates: []

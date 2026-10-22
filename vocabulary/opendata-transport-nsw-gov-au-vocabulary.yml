@@ -1,0 +1,231 @@
+generated: '2026-10-21'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v1-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v1-openapi.yml
+vocabulary:
+  name: Transport for NSW Open Data Hub Domain Vocabulary
+  description: 'Terms declared by Transport for NSW Open Data Hub''s own API contract: its resource groups, objects and enumerations, with the
+    contract''s definitions. Derived, not authored.'
+  version: '2026-10-21'
+  terms:
+  - term: pricing-api-controller
+    definition: the pricing API
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+  - term: carpark
+    definition: 'Resource group in the contract; its operation GET /carpark: Returns occupancy details of a car park based on a facility ID.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  - term: carpark-full-list
+    definition: 'Resource group in the contract; its operation GET /carpark/full-list: Returns occupancy details of all the car parks.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  - term: carparkhistory
+    definition: 'Resource group in the contract; its operation GET /carpark/history: Returns historical occupancy details of a car park based
+      on a facility ID and event date'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  - term: all
+    definition: 'Resource group in the contract; its operation GET /all: This feed includes service alerts for all bus, ferry, light rail, metro
+      and regional services matching those available on transportnsw.info and GTFS feeds.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: buses
+    definition: 'Resource group in the contract; its operation GET /buses: This feed includes service alerts for all Sydney Metro and Outer Metro
+      Bus Contract Regions (SMBSC, OSMBSC).'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: ferries
+    definition: 'Resource group in the contract; its operation GET /ferries: This feed includes service alerts for Sydney Ferries, Newcastle Transport
+      ferries, and private operators.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: lightrail
+    definition: 'Resource group in the contract; its operation GET /lightrail: This feed includes service alerts for Light Rail.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: metro
+    definition: 'Resource group in the contract; its operation GET /metro: This feed includes service alerts for Sydney Metro.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: nswtrains
+    definition: 'Resource group in the contract; its operation GET /nswtrains: This feed includes service alerts for NSW Trains regional trains
+      and coaches.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: regionbuses
+    definition: 'Resource group in the contract; its operation GET /regionbuses: This feed includes service alerts for Regional Buses.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: sydneytrains
+    definition: 'Resource group in the contract; its operation GET /sydneytrains: This feed includes service alerts for Sydney Trains suburban
+      and intercity network.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  - term: sydneymetro
+    definition: 'Resource group in the contract; its operation GET /metro: Please see the General Transit Feed Specification GTFS-realtime documentation
+      here: https://gtfs.org/realtime/reference/ The GTFS-realtime data exchange format is based on Protocol Buffers: https://protobuf.dev/overview/
+      Please review the Real time Sydney Trains Technical Documentation - https://opendata.transport.nsw.gov.au/documentation You may optionally
+      add a parameter ''debug'' of value ''true'' '
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml
+  - term: HistoricalTraffic
+    definition: 'Resource group in the contract; its operation POST /traffic/historicaldata: Retrieves Historical Data'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-historical-traffic-openapi.yml
+  - term: cameras
+    definition: 'Resource group in the contract; its operation GET /cameras: Please see the GeoJSON documentation here: http://geojson.org/ Please
+      review the Live Traffic Data Developer Guide: /content/dam/apiportal/transportnsw/docs/Live_Traffic_Data_Developer_Guide.pdf.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml
+  - term: alpine
+    definition: 'Resource group in the contract; its operation GET /alpine/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: fire
+    definition: 'Resource group in the contract; its operation GET /fire/all: Please see the GeoJSON documentation here: http://geojson.org/ Please
+      review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: flood
+    definition: 'Resource group in the contract; its operation GET /flood/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: incident
+    definition: 'Resource group in the contract; its operation GET /incident/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: majorevent
+    definition: 'Resource group in the contract; its operation GET /majorevent/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: roadwork
+    definition: 'Resource group in the contract; its operation GET /roadwork/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: regional-lga-incident
+    definition: 'Resource group in the contract; its operation GET /regional-lga-incident/all: Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: regional-lga-participation
+    definition: 'Resource group in the contract; its operation GET /regional-lga-participation/all: Please see the GeoJSON documentation here:
+      http://geojson.org/ Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - term: status
+    definition: 'Resource group in the contract; its operation GET /status: Please see the JSON documentation here: http://json.org/ Please review
+      the Live Traffic Data Developer Guide: https://opendata.transport.nsw.gov.au/sites/default/files/Live_Traffic_Data_Developer_Guide.pdf.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml
+  - term: loadingzones
+    definition: 'Resource group in the contract; its operation GET /loadingzones: Location of Sydney CBD kerbside loading zones (for use by delivery
+      vehicles when loading or unloading goods) by street and time of day (hourly) in JSON and XLS (MS Excel) formats Please see the JSON documentation
+      here: http://json.org/ Please review the data definition guide for Loading zone (kerbside) data: https://opendata.transport.nsw.gov.au/content/dam/apiportal/transportnsw/docs/TfNSW_LocFac'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-loading-zones-kerbside-openapi.yml
+  - term: facilitiesandoperators
+    definition: 'Resource group in the contract; its operation GET /facilitiesandoperators: Location facilities data is currently available for
+      all Sydney Trains and NSW Trains Intercity stations, several ferry wharves and major bus interchanges.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-location-facilities-operators-openapi.yml
+  - term: offstreetparking
+    definition: 'Resource group in the contract; its operation GET /offstreetparking: Parking spaces that are available for service and delivery
+      drivers in Sydney''s CBD (at commercial rates) in GeoJSON and CSV formats Please see the GeoJSON documentation here: http://geojson.org/
+      Please review the data definition guide for Off-street parking data: https://opendata.transport.nsw.gov.au/Users/dev/Documents/Transport/WADL/loadingzones.wadl.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-off-street-parking-openapi.yml
+  - term: rest_area_closures
+    definition: 'Resource group in the contract; its operation GET /rest_area_closures: Standard SQL is accepted including aggrate functions such
+      as count, max, min.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-rest-area-closures-openapi.yml
+  - term: rest_areas
+    definition: 'Resource group in the contract; its operation GET /spatial: Standard SQL is accepted including aggrate functions such as count,
+      max, min.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-rest-areas-openapi.yml
+  - term: realtime
+    definition: 'Resource group in the contract; its operation GET /realtime: This feed provides the number of passengers and taxis at one or
+      several taxi ranks.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  - term: info
+    definition: 'Resource group in the contract; its operation GET /info: This feed provides identifying information for one or more taxi ranks.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  - term: history
+    definition: 'Resource group in the contract; its operation GET /history: This feed provides 1 day''s worth of historical occupancy data for
+      1 taxi rank in 15 minute increments.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  - term: gtfs
+    definition: 'Resource group in the contract; its operation GET /gtfs: Please see the General Transit Feed Specification (GTFS) documentation
+      here: https://gtfs.org/ Returns ZIP file containing CSV files.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml
+  - term: transxchange
+    definition: 'Resource group in the contract; its operation GET /transxchange: Please see the TXC documentation here: http://www.transxchange.org.uk/
+      Note: Identifiers do not match the GTFS-realtime APIs and data.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml
+  - term: pricing
+    definition: 'Resource group in the contract; its operation POST /toll_calc: Returns the toll cost breakdown for a journey'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+  - term: /traffic_volume
+    definition: 'Resource group in the contract; its operation GET /traffic_volume: Standard SQL is accepted including aggregate functions such
+      as count, max, min.'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-traffic-volume-counts-openapi.yml
+  - term: routes
+    definition: 'Resource group in the contract; its operation GET /v1/routes: Transport Routes'
+    tags:
+    - Resource Group
+    source: openapi/opendata-transport-nsw-gov-au-transport-routes-openapi.yml

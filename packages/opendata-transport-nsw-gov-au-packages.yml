@@ -1,0 +1,15 @@
+generated: '2026-10-21'
+method: none
+source: https://pypi.org/pypi/PyTransportNSWv2/json
+note: 'no first-party package: every candidate a model listed was unowned (harvest-packages.py --audit)'
+packages: []
+rejected:
+- name: PyTransportNSWv2
+  registry: pypi
+  reason: 'official: false as written'
+- name: PyTransportNSW
+  registry: pypi
+  reason: 'official: false as written'
+- name: opendata-api
+  registry: rubygems
+  reason: 'official: false as written'

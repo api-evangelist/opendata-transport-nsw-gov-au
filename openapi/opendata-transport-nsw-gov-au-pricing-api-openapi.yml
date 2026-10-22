@@ -1,0 +1,349 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Pricing API
+  version: '1.0'
+  description: 'Operations tagged pricing across 4 of this provider''s published API definitions: toll-calc-prod_7.yaml, tollcalc_swagger_v01_0.yaml, opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml, opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/roads
+- url: https://api.transport.nsw.gov.au/v2/roads
+security:
+- APIKey: []
+tags:
+- name: Pricing
+paths:
+  /toll_calc:
+    post:
+      operationId: getTollCostFromEncodedPolyUsingPOST
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotalCost'
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Returns the toll cost breakdown for a journey
+      tags:
+      - Pricing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Journey'
+        description: Request object representing the journey
+        required: true
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/roads
+  /toll_calc/data:
+    get:
+      operationId: getData
+      responses:
+        '200':
+          description: successful operation
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get information about toll road pricing in NSW
+      tags:
+      - Pricing
+    servers:
+    - url: https://api.transport.nsw.gov.au/v2/roads
+  /toll_calc/match:
+    post:
+      operationId: getMatch
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchApiResponse'
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Returns the toll cost breakdown for the supplied route
+      tags:
+      - Pricing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Match'
+        description: Request object representing the journey
+        required: true
+    servers:
+    - url: https://api.transport.nsw.gov.au/v2/roads
+  /toll_calc/route:
+    post:
+      operationId: getRoutes
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteApiResponse'
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Returns possible routes between an origin and destination and the toll cost…
+      tags:
+      - Pricing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+        description: Request object representing the journey
+        required: true
+    servers:
+    - url: https://api.transport.nsw.gov.au/v2/roads
+components:
+  schemas:
+    TollPrice:
+      properties:
+        cost:
+          example: 4.55
+          format: double
+          type: number
+        id:
+          example: 2
+          format: int32
+          type: integer
+        roadname:
+          example: M7
+          type: string
+        timeofDaytolling:
+          example: false
+          type: boolean
+      type: object
+    Journey:
+      properties:
+        encodedPolyLine:
+          example: juanEa|wy[vG{|@d@cGR}ChBTbNbBdANTIRM`@kAbDuIbA{DVyBNiF@iDH{LGiCm@eDoA}C{AuByAoAuB_BwFmDqG_EeLiH{C{AiCi@aCI_CRqDlAeCnByB|C}BnDmAtA_C`BeD`AmCNyGg@}KqA}OoC{HaAsBOeH[sDIqO{AeJgAiT{DkUwCeP{BuM_BaF]yLqBcH}@_BIsAQoCWcHl@}IhB{D^eJj@qABwB]qAGmBMmEYoKo@wM_A}DEwCWgGiAwCg@aAAkCb@iCtAuBdCoAxDuAxF{ArDcB|Bc@^gAh@gATeBE{A]qDwAoCYoQ?yXr@qa@v@cD\gMjD{VfHsGxAqFXsIq@oO}AyHyAwEeBaD_B_CsAqDwAyFeAeDGgBFcDh@sBn@uC|AiB`B_C|CuAlEsChOkAzC{AnCyAlB{CpC{ClCyCvB}D|CeEtCcIrEaIjEiC~AwBvBwAvBcAbC_AfEWhD@zCX`Dl@|DxAjG`AlFz@pJN`J_@nK}BjPwB`PWdF?lGr@jNDlJYxGc@|D{CnPkCxQgC|UeAfHcB`HgBjFqCbGcIbNkDlI{D`MsClGuD~FqG~HyBfDyArCeBpEeD|JmAdCiBzC{BlCeC`CcCbBkEvBeEnAcDj@yHl@mEb@{G`BeDbAkCZqHNmLTqBX}DlAmBdAyBdBgBvBaB`CqRdZoPhWeD|F_AdCaBjGeArDo@xAkCdEkCfC}DnCgEnC}BnB{DpEmB|CiChEsAvCs@rB{AzF}@hFq@dIKtIZ~HnAtLlAtL@fGQpDuAtIuAvGS|BKxM?f^SpLsAhL}DxTgAbJu@lMw@vOy@|EcA`D_CrEuG~JqDfGeCdH{@~Du@pGO~FJlFv@xIjDlYlAxMxAbYnAhSl@pFdCbPjCpMvA|DlBjDnEjHbClE`AhCr@lCf@fDV`FCpDSzC{AzHkCbIu@bDm@bE[dF?xGn@pHz@jEnAvDtI|UbCzLbA~HfCb`@`BlUhAhKrGza@xF|ZxBhNtAtKfCr[b@bIx@jSSpGsA`K}AvFyAnDmClEkD`EuDzCmJjGeCvAsIrF_QtKsKrHoDtCoGxFaGjGoG|H_FbH{KhPaElGwIrOyElJwI~RsEfM{ItY}EnRkF~XaEhUi@jFsBfQ}@vEYr@]h@GPGb@i@MgAY_Cs@kDyAoLkEiIgDcDqA}A]{@DSNkAnDoApEmA`E[hBGhK?vL?dJZfFb@~BVvCPlG_@`FmAhLM`G[bFoApEo@rBc@bCiA`GaBfDgP`SaAxBs@~EBrJ?fDYnBe@lA
+          type: string
+        heavyVehicle:
+          example: false
+          type: boolean
+        journeyTime:
+          example: 25
+          format: int32
+          type: integer
+        travelDateTime:
+          format: date-time
+          type: string
+      required:
+      - encodedPolyLine
+      - travelDateTime
+      type: object
+    TotalCost:
+      properties:
+        breakdown:
+          items:
+            $ref: '#/components/schemas/TollPrice'
+          type: array
+        totalCost:
+          example: 13.66
+          format: double
+          type: number
+      type: object
+    BadRequestResponse:
+      properties:
+        errorMessage:
+          example: Date out of range
+          type: string
+      required:
+      - errorMessage
+      type: object
+    VehicleClassByMotorway:
+      properties:
+        CCT:
+          $ref: '#/components/schemas/VehicleClass'
+        ED:
+          $ref: '#/components/schemas/VehicleClass'
+        LCT:
+          $ref: '#/components/schemas/VehicleClass'
+        M2:
+          $ref: '#/components/schemas/VehicleClass'
+        M4:
+          $ref: '#/components/schemas/VehicleClass'
+        M5:
+          $ref: '#/components/schemas/VehicleClass'
+        M7:
+          $ref: '#/components/schemas/VehicleClass'
+        SHB:
+          $ref: '#/components/schemas/VehicleClass'
+        SHT:
+          $ref: '#/components/schemas/VehicleClass'
+      type: object
+    RouteApiResponse:
+      properties:
+        routes:
+          items:
+            $ref: '#/components/schemas/TollCalculationResponse'
+          type: array
+      type: object
+    TollResponse:
+      properties:
+        chargeType:
+          enum:
+          - Fixed
+          - TimeOfDay
+          - Distance
+          type: string
+        charges:
+          items:
+            properties:
+              chargeInCents:
+                type: number
+              vehicleClass:
+                $ref: '#/components/schemas/VehicleClass'
+            type: object
+          type: array
+        maxChargeInCents:
+          type: number
+        minChargeInCents:
+          type: number
+      type: object
+    MatchApiResponse:
+      properties:
+        match:
+          $ref: '#/components/schemas/TollCalculationResponse'
+      type: object
+    VehicleClass:
+      enum:
+      - A
+      - B
+      type: string
+    Route:
+      properties:
+        departureTime:
+          format: date-time
+          type: string
+        destination:
+          $ref: '#/components/schemas/CoordinatesLocationName'
+        excludeToll:
+          default: false
+          type: boolean
+        includeSteps:
+          default: false
+          type: boolean
+        origin:
+          $ref: '#/components/schemas/CoordinatesLocationName'
+        vehicleClass:
+          $ref: '#/components/schemas/VehicleClass'
+        vehicleClassByMotorway:
+          $ref: '#/components/schemas/VehicleClassByMotorway'
+      required:
+      - origin
+      - destination
+      type: object
+    TollCalculationResponse:
+      properties:
+        confidence:
+          type: number
+        distance:
+          type: number
+        duration:
+          type: number
+        geometry:
+          type: string
+        isCheapest:
+          type: boolean
+        isQuickest:
+          type: boolean
+        isShortest:
+          type: boolean
+        maxChargeInCents:
+          type: number
+        minChargeInCents:
+          type: number
+        summary:
+          type: string
+        tollsCharged:
+          items:
+            $ref: '#/components/schemas/TollResponse'
+          type: array
+      type: object
+    Match:
+      properties:
+        accuracy:
+          example: 10
+          type: number
+        departureTime:
+          format: date-time
+          type: string
+        includeSteps:
+          default: false
+          type: boolean
+        polyline:
+          example: tc_mEgb_y[@Nz@jK@@BX@?@@@??@@?@@?@?@?@?@?@?@A@?@A@A?@H?NABb@`E\`DJpAhAhI?V?FB?B@@@BB?D?BABABC@C@~@dJhD~\l@CnAK~@MlB[j@Mz@U`Bg@pAc@~Ag@t@Sf@Kl@It@I\PRHh@ZFHDLBP?DPtDBb@RnENnCHhCDz@DlAD~@LbCHhARvBVnCbB|KV~AZnBbArFPp@X`ATv@Vv@Tn@Zr@b@|@d@t@^l@^j@bA~AfAfBbAbBf@v@\n@`@x@`@bA`@hAPn@TbAThAVjBJdADr@DtA@nACbBIdBKlAQrAUnA_@zAc@xAi@zAu@xBY~@Sr@Qp@Ov@Y~AQlAKz@IjAGnACr@At@AnA@fADtAFnAJlAJfALx@Jr@ThAXhAd@|AtAvDv@pBf@tAbAlC|@`Cx@lCZhAXdAV~A^tB^rBZvBHv@Ht@NxATjAF|@NxBJ`BLlBJfBj@bJV|DFhANfAHhAVzDNfCL|ANbBLzALrA^lCPnAl@zDb@`CXbBXhBZfCT`BV`Bx@rEn@vDrAxHZ`BT`Ap@dDd@jCz@pFZtBVlBJn@XxBDZr@rGLjAJrAL|A`@zFz@nMn@jNTbDCbDIlCCn@E`@OdBK~@OfAY`B[xAm@zB]lAs@lB{@bBe@~@iBfC}AjBuAvAuBhB{A~@i@\mGbEaJvFs@b@cCzA{CpB_DrBqD|ByClBqDdCqDpCm@f@uAjAwBnBwDpDsDzDcD|D_DbEkA~AwFlI}A`CwDxFgC~D{BlD{CvFwFlKsAtCeChFqAvCOZsBfFiB`FuAjDeBfFeBxFmBtGcAvDqAhFo@nCuAdGgB~IiBfKyA`Ig@rCiArGo@lD_DxQaAhGa@jCiAjHa@jD]~CYrC]|CoAlNcFpo@i@lIk@hMShFQrGSnIUlHi@zRUrKYhJc@lKSxH[|JIrCKfDSvGMdCQzCWtDSvBSlBc@xDa@rD{ArMm@xEm@tF{@dH}@tH_AhI{@jHs@xFOjAg@jEYxBu@lGMxAGlACxA?xADfBL`BNjAV|AZpAXbAf@tA^x@`@x@h@|@j@t@l@v@|@|@p@j@f@\b@Xh@Z`@RzBz@z@Rn@Lt@JvAR`CX`MzAp@HtOjBfPlB|MjB~IfA~Dd@lAJvAD|AA`BEbCYlB_@xPiFnAYxB[zAMrAIhCC`DNlKtArFt@fP~BfCZpAHpBFzBEzCSpCe@tBm@bBm@lB}@rAu@rAcApAmA^a@z@cA|@iABCv@gA`B{Cp@wAnAoCdAiCrAsCtAcCjBeDzAmBfBqB|AuAlCuBxAy@|A{@bCeA~Ak@`Bc@xBi@jB[hBQn@G~GIbERrAL|AVzDt@~@RrBb@`B\`BZ`Dl@dE~@|Bd@pAXjATbEv@tKtBdC^tCb@rDn@~RfCpOfBjAN|Q|B~Fp@xFp@vAHf@BpGZzBJ`JLzB?tCBjFGpA@rND|EFzEMjDg@fA[zBy@hDmB|D_CzDuBbFsCjBcApDsAlEqArC_@jHo@dE@dELbL\~H^~F\x@Fj@D~@HnCTnMnArKrApIfBzIvBhA^`D`AlC~@|DvAhChAnCjAxAl@~Al@rBr@jCh@hEn@|Cj@bARjEz@tE`ArFlA|Bl@jBf@xBp@bCj@`B`@xBh@hDz@pDr@jB`@hBX`BVnBVpE`@|Df@hGh@bKhAj@Fx@JvBZj@FdC^zCt@j@PlD~AvAr@`Ah@rBhAxBxAh@ZPWzEoGjBwEhAsCjB{DbBsBjDyDtBoBfDeEtBkDfAsCf@yDN{CIsGU{JAc@?QVATAjAI|@Ib@EHEHAHBDD@BBJAJEHEDEb@Er@Gj@Qv@O~@K`AGlAAbA?x@DdANrAN`ARz@Rv@d@bARb@P\b@n@b@f@f@f@d@b@lAv@TVTVRXPXRb@|@bCrAjDLTLNFBFH~@Ld@?\C`@I\Qf@e@j@s@b@k@f@g@f@a@j@[d@Qd@Oh@Kj@Gt@Av@Bp@J|@RbAf@z@n@h@^p@`@|@Vd@Fr@Dn@Ah@Gl@Md@Q^ORU@EBEDEDCFAD@B@BBDD@F@FAFADCD@f@F\Jp@Fx@B|@?b@?^C~@Et@In@I\S`@[n@M`@G`@?XF?DBDDBF?F~CD@G@EDCDCD?D@FYVm@PWZa@d@a@^Sf@Qt@KTAxAGP@B@LUDMHQ`@c@b@aAJOFM^_@v@[t@YHITQVYHKp@wA
+          type: string
+        vehicleClass:
+          $ref: '#/components/schemas/VehicleClass'
+        vehicleClassByMotorway:
+          $ref: '#/components/schemas/VehicleClassByMotorway'
+      required:
+      - origin
+      - destination
+      type: object
+    CoordinatesLocationName:
+      properties:
+        lat:
+          example: -33.8819
+          type: number
+        lng:
+          example: 151.2517
+          type: number
+        name:
+          maxLength: 100
+          type: string
+      required:
+      - lat
+      - lng
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- toll-calc-prod_7.yaml
+- tollcalc_swagger_v01_0.yaml
+- opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+- opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml

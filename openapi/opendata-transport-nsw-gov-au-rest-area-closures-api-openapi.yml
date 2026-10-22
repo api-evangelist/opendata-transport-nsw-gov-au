@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Rest Area Closures API
+  version: '1.0'
+  description: 'Operations tagged rest_area_closures across 2 of this provider''s published API definitions: rest_area_closure_v1.yaml, opendata-transport-nsw-gov-au-rest-area-closures-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.np.transport.nsw.gov.au/v1
+security:
+- APIKey: []
+tags:
+- name: rest_area_closures
+paths:
+  /rest_area_closures:
+    get:
+      description: 'Standard SQL is accepted including aggrate functions such as count, max, min.
+
+        Order by and limit is also supported
+
+
+        Note that if there are no known closures at a given time then data will be empty. Some example queries are:
+
+
+        SELECT * FROM rest_area_closure_table LIMIT 50
+
+
+        Current tables offered to users are:
+
+
+        rest_area_closure
+
+
+        This API is based on PostgreSQL.
+
+        You can view the official documentation for further details on query syntax.'
+      parameters:
+      - description: Select format of the return data
+        in: query
+        name: format
+        required: false
+        schema:
+          type: string
+          enum:
+          - json
+          - geojson
+          default: geojson
+      - description: Sql query you wish to execute
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+          default: 'select * from np_rest_area_closure_table limit 50 '
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+            geojson:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Execute various queries on the Rest Area Closures API
+      tags:
+      - rest_area_closures
+      operationId: getRestAreaClosures
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.np.transport.nsw.gov.au/v1
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- rest_area_closure_v1.yaml
+- opendata-transport-nsw-gov-au-rest-area-closures-openapi.yml

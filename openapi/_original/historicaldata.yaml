@@ -1,0 +1,117 @@
+basePath: /v1
+consumes:
+- application/json
+definitions:
+    ErrorDetails:
+        description: Error response
+        example:
+            ErrorDetails:
+                ErrorDateTime: XXXXXXXXXX
+                Message: XXXXXXXXXX
+                RequestedMethod: XXXXXXXXXX
+                RequestedUrl: XXXXXXXXXX
+                TransactionId: XXXXXXXXXX
+        properties:
+            ErrorDateTime:
+                type: string
+            Message:
+                type: string
+            RequestedMethod:
+                type: string
+            RequestedUrl:
+                type: string
+            TransactionId:
+                type: string
+        required:
+        - TransactionId
+        - ErrorDateTime
+        - Message
+        - RequestedUrl
+        - RequestedMethod
+        type: object
+    RetrieveHistoricalDataRequest:
+        example:
+            created: '2020-06-01T00:00:00.000+10:00'
+            end: '2020-06-01T23:59:59.999+10:00'
+            latitude: -33.86734
+            longitude: 151.20823
+            radius: 1.0
+            showHistory: true
+        properties:
+            created:
+                format: date-time
+                type: string
+            end:
+                format: date-time
+                type: string
+            latitude:
+                maximum: 90
+                minimum: -90
+                type: number
+            longitude:
+                maximum: 180
+                minimum: -180
+                type: number
+            radius:
+                maximum: 500
+                minimum: 0
+                type: number
+            showHistory:
+                type: boolean
+        type: object
+host: api.transport.nsw.gov.au
+info:
+    description: API for Historical Data
+    title: Historical Data API
+    version: 1.0.0
+paths:
+    /traffic/historicaldata:
+        post:
+            description: Retrieves Historical Data
+            operationId: GetHistoricalData
+            parameters:
+            -   description: Request object type has details to retrieve historical
+                    traffic
+                in: body
+                name: retrieveHistoricalDataRequest
+                required: true
+                schema:
+                    $ref: '#/definitions/RetrieveHistoricalDataRequest'
+            responses:
+                '200':
+                    description: The request has been processed successfully.
+                    examples: {}
+                    schema:
+                        type: file
+                '401':
+                    description: The application calling the API has not been authenticated.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '404':
+                    description: The requested resource could not be found.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '500':
+                    description: System failure, server error
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+                '503':
+                    description: The server is currently unavailable.
+                    examples: {}
+                    schema:
+                        $ref: '#/definitions/ErrorDetails'
+            tags:
+            - HistoricalTraffic
+produces:
+- application/json
+security:
+-   APIKey: []
+securityDefinitions:
+    APIKey:
+        description: 'Expected Format: apikey [TOKEN]'
+        in: header
+        name: Authorization
+        type: apiKey
+swagger: '2.0'

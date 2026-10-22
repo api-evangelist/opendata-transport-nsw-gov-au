@@ -1,0 +1,221 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements overlay for Get GTFS timetables, stops, and route shapes
+  version: 1.0.0
+extends: ../openapi/_original/opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml
+x-generated: '2026-10-21'
+x-method: generated
+x-source: openapi/opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml
+x-rationale: >-
+  Generated from the saved provider contract and apis.yml. Adds catalog description, documentation link, the documented
+  apikey header format, idempotency hints for GET reads and (where the provider omitted them) derived operationIds
+  and tags. The original contract is never mutated.
+actions:
+- target: $.info
+  description: >-
+    Add the catalog description of this API (from apis.yml) where the provider contract has none or a stub.
+  update:
+    description: >-
+      Static timetables, stop locations, pathways for trains, and route shape information in GTFS format for operators
+      that support realtime. Covers Buses, Ferries, Light Rail, Trains, Metro and Regional Bus Services (our regional
+      services are at times referenced as "TCB" - Transport Connected Bus). An up to date list of all TCB services
+      can be found on the forum . Swagger 2.0 contract published by Transport for NSW on the Open Data Hub dataset
+      page; served via the TfNSW API Gateway (api.transport.nsw.gov.au), API key required.
+- target: $.securityDefinitions.APIKey
+  description: >-
+    Clarify the documented header format: the provider contract states "Expected Format: apikey [TOKEN]" on the
+    Authorization header.
+  update:
+    x-header-example: 'Authorization: apikey <YOUR_API_KEY>'
+    x-obtain-key: https://opendata.transport.nsw.gov.au/developers/userguide
+- target: $
+  description: Link the provider documentation and catalog entry.
+  update:
+    externalDocs:
+      description: Transport for NSW Open Data Hub API basics
+      url: https://opendata.transport.nsw.gov.au/developers/api-basics
+    x-apis-json-name: Transport for NSW Public Transport - Timetables - For Realtime
+- target: $.paths['/buses'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/SBSC006'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC001'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC002'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC003'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC004'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC007'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC008'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC009'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC010'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/GSBC014'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC001'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC002'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC003'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC004'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OMBSC006'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OMBSC007'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC008'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC009'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC010'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC011'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/OSMBSC012'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/NISC001'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/ReplacementBus'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/buses/PCBC'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/ferries/sydneyferries'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/ferries/MFF'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/lightrail/innerwest'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/lightrail/newcastle'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/lightrail/cbdandsoutheast'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/lightrail/parramatta'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/nswtrains'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/sydneytrains'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/southeasttablelands'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/southeasttablelands2'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/northcoast'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/northcoast2'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/centralwestandorana'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/centralwestandorana2'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/riverinamurray'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/newenglandnorthwest'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/riverinamurray2'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/northcoast3'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/sydneysurrounds'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/newcastlehunter'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true
+- target: $.paths['/regionbuses/farwest'].get
+  description: GET is a safe, idempotent read.
+  update:
+    x-idempotent: true

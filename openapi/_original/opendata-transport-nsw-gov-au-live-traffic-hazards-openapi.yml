@@ -1,0 +1,913 @@
+# x-archived-from: opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+# x-archived-on: 2026-10-21
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Get Live Traffic Hazard Data
+host: api.transport.nsw.gov.au
+basePath: /v1/live/hazards
+schemes:
+- https
+consumes:
+- '*/*'
+produces:
+- application/json
+tags:
+- name: alpine
+- name: fire
+- name: flood
+- name: incident
+- name: majorevent
+- name: roadwork
+security:
+- APIKey: []
+paths:
+  /alpine/all:
+    get:
+      tags:
+      - alpine
+      summary: Past and current alpine conditions
+      operationId: GetAllAlpine
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /alpine/closed:
+    get:
+      tags:
+      - alpine
+      summary: Past alpine conditions
+      operationId: GetClosedAlpine
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /alpine/open:
+    get:
+      tags:
+      - alpine
+      summary: Current alpine conditions
+      operationId: GetOpenAlpine
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /fire/all:
+    get:
+      tags:
+      - fire
+      summary: Past and current fires
+      operationId: GetAllFire
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /fire/closed:
+    get:
+      tags:
+      - fire
+      summary: Past fires
+      operationId: GetClosedFire
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /fire/open:
+    get:
+      tags:
+      - fire
+      summary: Current fires
+      operationId: GetOpenFire
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /flood/all:
+    get:
+      tags:
+      - flood
+      summary: Past and current floods
+      operationId: GetAllFlood
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /flood/closed:
+    get:
+      tags:
+      - flood
+      summary: Past floods
+      operationId: GetClosedFlood
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /flood/open:
+    get:
+      tags:
+      - flood
+      summary: Current floods
+      operationId: GetOpenFlood
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /incident/all:
+    get:
+      tags:
+      - incident
+      summary: Past and current incidents
+      operationId: GetAllTrafficIncidents
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /incident/closed:
+    get:
+      tags:
+      - incident
+      summary: Past incidents
+      operationId: GetClosedTrafficIncidents
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /incident/open:
+    get:
+      tags:
+      - incident
+      summary: Current incidents
+      operationId: GetOpenTrafficIncidents
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /majorevent/all:
+    get:
+      tags:
+      - majorevent
+      summary: Past, current and planned events
+      operationId: GetAllMajorEvent
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /majorevent/closed:
+    get:
+      tags:
+      - majorevent
+      summary: Past events
+      operationId: GetClosedMajorEvent
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /majorevent/open:
+    get:
+      tags:
+      - majorevent
+      summary: Current and planned events
+      operationId: GetOpenMajorEvent
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /roadwork/all:
+    get:
+      tags:
+      - roadwork
+      summary: Past, current and planned roadworks
+      operationId: GetAllRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /roadwork/closed:
+    get:
+      tags:
+      - roadwork
+      summary: Past roadworks
+      operationId: GetClosedRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /roadwork/open:
+    get:
+      tags:
+      - roadwork
+      summary: Current and planned roadworks
+      operationId: GetOpenRoadwork
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /regional-lga-incident/all:
+    get:
+      tags:
+      - regional-lga-incident
+      summary: Past and current regional LGA incidents
+      operationId: GetAllRegionalLGAIncident
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /regional-lga-incident/closed:
+    get:
+      tags:
+      - regional-lga-incident
+      summary: Past regional LGA incidents
+      operationId: GetClosedRegionalLGAIncident
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /regional-lga-incident/open:
+    get:
+      tags:
+      - regional-lga-incident
+      summary: Current regional LGA incidents
+      operationId: GetOpenRegionalLGAIncident
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+  /regional-lga-participation/all:
+    get:
+      tags:
+      - regional-lga-participation
+      summary: Past and current regional LGA participation
+      operationId: GetAllRegionalLGAParticipation
+      description: 'Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the Live Traffic Data Developer Guide on our documentation page: https://opendata.transport.nsw.gov.au/documentation'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+securityDefinitions:
+  APIKey:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: 'Expected Format: apikey [TOKEN]'
+definitions:
+  ErrorDetails:
+    type: object
+    required:
+    - TransactionId
+    - ErrorDateTime
+    - Message
+    - RequestedUrl
+    - RequestedMethod
+    description: Error response
+    properties:
+      TransactionId:
+        type: string
+      ErrorDateTime:
+        type: string
+      Message:
+        type: string
+      RequestedUrl:
+        type: string
+      RequestedMethod:
+        type: string
+    example:
+      ErrorDetails:
+        TransactionId: XXXXXXXXXX
+        ErrorDateTime: XXXXXXXXXX
+        Message: XXXXXXXXXX
+        RequestedUrl: XXXXXXXXXX
+        RequestedMethod: XXXXXXXXXX
+x-source-url: https://opendata.transport.nsw.gov.au/data/dataset/4b9a6b9b-118a-458d-938d-585ae5c24fe7/resource/5ff3ba21-cda9-4d30-acc2-98ee15184044/download/livetraffichazarddata_2_1.json

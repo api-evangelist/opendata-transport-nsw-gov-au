@@ -1,0 +1,96 @@
+# x-archived-from: opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml
+# x-archived-on: 2026-10-21
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Get the Status of the Live Traffic Site
+host: api.transport.nsw.gov.au
+basePath: /v1/live
+schemes:
+- https
+consumes:
+- '*/*'
+produces:
+- application/json
+tags:
+- name: status
+security:
+- APIKey: []
+paths:
+  /status:
+    get:
+      tags:
+      - status
+      summary: Current status of the Live Traffic NSW website
+      operationId: GetTrafficSiteStatus
+      description: 'Please see the JSON documentation here: http://json.org/
+
+
+        Please review the Live Traffic Data Developer Guide: https://opendata.transport.nsw.gov.au/sites/default/files/Live_Traffic_Data_Developer_Guide.pdf.
+
+
+        Possible value is "AVAILABLE".  All other values for Status indicates the Live Traffic site is offline.'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+securityDefinitions:
+  APIKey:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: 'Expected Format: apikey [TOKEN]'
+definitions:
+  ErrorDetails:
+    type: object
+    required:
+    - TransactionId
+    - ErrorDateTime
+    - Message
+    - RequestedUrl
+    - RequestedMethod
+    description: Error response
+    properties:
+      TransactionId:
+        type: string
+      ErrorDateTime:
+        type: string
+      Message:
+        type: string
+      RequestedUrl:
+        type: string
+      RequestedMethod:
+        type: string
+    example:
+      ErrorDetails:
+        TransactionId: XXXXXXXXXX
+        ErrorDateTime: XXXXXXXXXX
+        Message: XXXXXXXXXX
+        RequestedUrl: XXXXXXXXXX
+        RequestedMethod: XXXXXXXXXX
+x-source-url: https://opendata.transport.nsw.gov.au/data/dataset/86b2d56f-b784-4951-a6e8-e690fd7cc7ca/resource/74230226-c8cc-4d87-a1b8-886457ef0b1a/download/livetrafficsitestatus_0.json

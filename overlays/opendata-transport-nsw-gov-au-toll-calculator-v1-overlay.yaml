@@ -1,0 +1,41 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements overlay for Toll Calculator
+  version: 1.0.0
+extends: ../openapi/_original/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+x-generated: '2026-10-21'
+x-method: generated
+x-source: openapi/opendata-transport-nsw-gov-au-toll-calculator-v1-openapi.yml
+x-rationale: >-
+  Generated from the saved provider contract and apis.yml. Adds catalog description, documentation link, the documented
+  apikey header format, idempotency hints for GET reads and (where the provider omitted them) derived operationIds
+  and tags. The original contract is never mutated.
+actions:
+- target: $.info
+  description: >-
+    Add the catalog description of this API (from apis.yml) where the provider contract has none or a stub.
+  update:
+    description: >-
+      The Toll Calculator API has been updated to Version 2 as of 16 June 2020 and provides developers a means of
+      accessing the most up-to-date toll pricing for journeys undertaken across NSW roads. Disclaimer: The results
+      returned by the Toll Calculator API are estimates only. Transport for NSW (TfNSW) does not guarantee the accuracy
+      of the results returned by the API. Swagger 2.0 contract published by Transport for NSW on the Open Data Hub
+      dataset page; served via the TfNSW API Gateway (api.transport.nsw.gov.au), API key required.
+- target: $.securityDefinitions.APIKey
+  description: >-
+    Clarify the documented header format: the provider contract states "Expected Format: apikey [TOKEN]" on the
+    Authorization header.
+  update:
+    x-header-example: 'Authorization: apikey <YOUR_API_KEY>'
+    x-obtain-key: https://opendata.transport.nsw.gov.au/developers/userguide
+- target: $
+  description: Link the provider documentation and catalog entry.
+  update:
+    externalDocs:
+      description: Transport for NSW Open Data Hub API basics
+      url: https://opendata.transport.nsw.gov.au/developers/api-basics
+    x-apis-json-name: Transport for NSW Toll Calculator API v1 (deprecated)
+- target: $.info
+  description: The catalog lists this API as deprecated.
+  update:
+    x-deprecated: true

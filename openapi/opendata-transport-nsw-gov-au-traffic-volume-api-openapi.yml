@@ -1,0 +1,191 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au /traffic Volume API
+  version: '1.0'
+  description: 'Operations tagged /traffic_volume across 2 of this provider''s published API definitions: traffic-volume-swagger.yaml, opendata-transport-nsw-gov-au-traffic-volume-counts-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1
+security:
+- APIKey: []
+tags:
+- name: /traffic_volume
+paths:
+  /traffic_volume:
+    get:
+      description: 'Standard SQL is accepted including aggregate functions such as count, max, min.
+
+        Order by and limit is also supported
+
+
+        Some example queries are:
+
+
+        SELECT * FROM road_traffic_counts_station_reference ORDER BY station_id LIMIT 50
+
+        SELECT * FROM road_traffic_counts_hourly_permanent LIMIT 10
+
+
+        Current tables offered to users are:
+
+
+        road_traffic_counts_station_reference
+
+
+        road_traffic_counts_yearly_summary
+
+
+        road_traffic_counts_hourly_permanent
+
+
+        road_traffic_counts_hourly_sample
+
+
+        This API is based on PostgreSQL.
+
+        You can view the official documentation for further details on query syntax.'
+      parameters:
+      - description: Select format of the return data
+        in: query
+        name: format
+        required: false
+        schema:
+          type: string
+          enum:
+          - csv
+          - kml
+          - geojson
+          - shp
+          - json
+          default: geojson
+      - description: Sql query you wish to execute
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+          default: 'select * from road_traffic_counts_station_reference limit 50 '
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+            csv:
+              schema:
+                type: string
+                format: binary
+            kml:
+              schema:
+                type: string
+                format: binary
+            shp:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            csv:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            kml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            shp:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            csv:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            kml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            shp:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            csv:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            kml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            shp:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            csv:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            kml:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            shp:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Execute various queries on the Traffic Volume Counts API
+      tags:
+      - /traffic_volume
+      operationId: getTrafficVolume
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- traffic-volume-swagger.yaml
+- opendata-transport-nsw-gov-au-traffic-volume-counts-openapi.yml

@@ -1,0 +1,21 @@
+name: Transport for NSW Open Data Hub agent skills
+generated: '2026-10-21'
+method: generated
+source: openapi/
+note: No provider-published skills or AGENTS.md were found (https://opendata.transport.nsw.gov.au/AGENTS.md returned 404 on 2026-10-21). These skills are generated from the saved OpenAPI contracts.
+skills:
+  - name: plan-public-transport-trip
+    path: skills/opendata-transport-nsw-gov-au-plan-public-transport-trip.md
+    api: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  - name: check-road-conditions
+    path: skills/opendata-transport-nsw-gov-au-check-road-conditions.md
+    api: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  - name: calculate-toll-cost
+    path: skills/opendata-transport-nsw-gov-au-calculate-toll-cost.md
+    api: openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+  - name: find-car-park-availability
+    path: skills/opendata-transport-nsw-gov-au-find-car-park-availability.md
+    api: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  - name: get-service-alerts
+    path: skills/opendata-transport-nsw-gov-au-get-service-alerts.md
+    api: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml

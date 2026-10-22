@@ -1,0 +1,128 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Sydneytrains API
+  version: '1.0'
+  description: 'Operations tagged sydneytrains across 7 of this provider''s published API definitions: getrealtime_v2_03.yml, getschedule-busextension_2.6.json, v2-gtfs-alerts-swaggerprod_1.yaml, opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml, opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml, opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v2-openapi.yml, opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v2/gtfs/realtime
+- url: https://api.transport.nsw.gov.au/v1/gtfs/schedule
+- url: https://api.transport.nsw.gov.au/v2/gtfs/alerts
+- url: https://api.transport.nsw.gov.au/v2/gtfs/vehiclepos
+security:
+- APIKey: []
+tags:
+- name: sydneytrains
+paths:
+  /sydneytrains:
+    get:
+      description: 'Please see the General Transit Feed Specification GTFS-realtime documentation here:
+
+        https://gtfs.org/realtime/reference/
+
+
+        The GTFS-realtime data exchange format is based on Protocol Buffers:
+
+        https://protobuf.dev/overview/
+
+
+        Please review the Real time Sydney Trains Technical Documentation - https://opendata.transport.nsw.gov.au/documentation
+
+
+        You may optionally add a parameter ''debug'' of value ''true'' and type ''query'' to retrieve protocol messages in a text-based format.
+
+
+        The HEAD operation can be used to tell you if the content has changed (as GET may not return an HTTP 304 when no content has changed.)
+
+
+        For example, you may compare the Last-Modified header retrieved during a HEAD operation with the Last-Modified header retrieved during a previous GET operation. If the headers are the same, the content has not changed since the previous GET operation. If the headers are different, the content has changed since the previous GET operation.'
+      operationId: GetSydneyTrains
+      parameters:
+      - description: Retrieve protocol messages in a text, text-based format.  <br> Note return message may be truncated
+        in: query
+        name: debug
+        required: false
+        schema:
+          type: string
+          enum:
+          - 'true'
+          default: ''
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/x-google-protobuf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/x-google-protobuf:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/x-google-protobuf:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/x-google-protobuf:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/x-google-protobuf:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: GTFS-realtime stop time updates for Sydney Trains
+      tags:
+      - sydneytrains
+    servers:
+    - url: https://api.transport.nsw.gov.au/v2/gtfs/realtime
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- getrealtime_v2_03.yml
+- getschedule-busextension_2.6.json
+- v2-gtfs-alerts-swaggerprod_1.yaml
+- opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+- opendata-transport-nsw-gov-au-gtfs-realtime-trip-updates-v2-openapi.yml
+- opendata-transport-nsw-gov-au-gtfs-realtime-vehicle-positions-v2-openapi.yml
+- opendata-transport-nsw-gov-au-gtfs-schedule-v1-openapi.yml

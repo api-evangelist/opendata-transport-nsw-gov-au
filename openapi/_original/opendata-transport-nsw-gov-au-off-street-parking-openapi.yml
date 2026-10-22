@@ -1,0 +1,93 @@
+# x-archived-from: opendata-transport-nsw-gov-au-off-street-parking-openapi.yml
+# x-archived-on: 2026-10-21
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Get Off-street Parking Data
+host: api.transport.nsw.gov.au
+basePath: /v1/roads/static
+schemes:
+- https
+consumes:
+- '*/*'
+produces:
+- application/zip
+tags:
+- name: offstreetparking
+security:
+- APIKey: []
+paths:
+  /offstreetparking:
+    get:
+      tags:
+      - offstreetparking
+      summary: Off-street parking data
+      operationId: GetOffStreetParking
+      description: 'Parking spaces that are available for service and delivery drivers in Sydney''s CBD (at commercial rates) in GeoJSON and CSV formats
+
+
+        Please see the GeoJSON documentation here: http://geojson.org/
+
+
+        Please review the data definition guide for Off-street parking data: https://opendata.transport.nsw.gov.au/Users/dev/Documents/Transport/WADL/loadingzones.wadl.
+
+
+        The API or dataset includes Sydney CBD''s major parking providers and includes information for over 20,000 off street parking spaces.'
+      produces: []
+      consumes: []
+      parameters: []
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          schema:
+            type: file
+          examples: {}
+        '401':
+          description: The application calling the API has not been authenticated.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '404':
+          description: The requested resource could not be found.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '500':
+          description: An internal error has occured.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+        '503':
+          description: The server is currently unavailable.
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+          examples: {}
+securityDefinitions:
+  APIKey:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: 'Expected Format: apikey [TOKEN]'
+definitions:
+  ErrorDetails:
+    type: object
+    description: Error response
+    properties:
+      TransactionId:
+        type: string
+      ErrorDateTime:
+        type: string
+      Message:
+        type: string
+      RequestedUrl:
+        type: string
+      RequestedMethod:
+        type: string
+    example:
+      ErrorDetails:
+        TransactionId: XXXXXXXXXX
+        ErrorDateTime: XXXXXXXXXX
+        Message: XXXXXXXXXX
+        RequestedUrl: XXXXXXXXXX
+        RequestedMethod: GET
+x-source-url: https://opendata.transport.nsw.gov.au/data/dataset/ba82882b-e145-4594-bc2a-f312397a9225/resource/01dc4edc-4562-47ed-8545-d5525b6b6249/download/parking.json

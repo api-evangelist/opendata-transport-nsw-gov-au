@@ -1,0 +1,229 @@
+generated: '2026-10-21'
+method: derived
+status: candidate
+source:
+- openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-historical-traffic-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+- openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+searched:
+  query: Transport for NSW open data MCP server
+  date: '2026-10-21'
+  official_server_found: false
+  llms_txt: https://opendata.transport.nsw.gov.au/llms.txt returned 404 on 2026-10-21
+  community_servers:
+  - name: tfnsw-realtime-alerts-mcp-server
+    author: piddlingtuna (community, not Transport for NSW)
+    package: https://www.npmjs.com/package/tfnsw-realtime-alerts-mcp-server
+    readme: https://unpkg.com/tfnsw-realtime-alerts-mcp-server@1.0.0/README.md
+    transport: stdio
+    documented_tools:
+    - get-transport-alerts
+    backs_onto: GTFS-realtime Alerts API
+    official: false
+  - name: Transport NSW MCP server
+    author: danhussey (community)
+    listing: https://playbooks.com/mcp/danhussey-transportnsw
+    listing_status: 404 on 2026-10-21 (seen only in search results)
+    official: false
+server:
+  name: opendata-transport-nsw-gov-au
+  status: candidate
+  note: >-
+    No official Transport for NSW MCP server exists. Tools below are a candidate set derived from the saved OpenAPI
+    contracts.
+deployment:
+  mode: none
+  auth: api-key
+  verified: derived
+auth:
+  methods:
+  - apikey
+  apikey:
+    header: Authorization
+    format: apikey <TOKEN>
+    obtain: https://opendata.transport.nsw.gov.au/developers/userguide
+tools:
+- name: car_park_get_car_park
+  description: Parking spaces
+  operation: GetCarPark
+  spec: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  method: GET
+  path: /v1/carpark
+  readOnlyHint: true
+- name: car_park_get_car_park_full_list
+  description: Full list of Parking spaces
+  operation: GetCarParkFull-list
+  spec: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  method: GET
+  path: /v1/carpark/full-list
+  readOnlyHint: true
+- name: car_park_get_car_park_history
+  description: Parking spaces history
+  operation: GetCarParkHistory
+  spec: openapi/opendata-transport-nsw-gov-au-car-park-openapi.yml
+  method: GET
+  path: /v1/carpark/history
+  readOnlyHint: true
+- name: get_service_alerts_all
+  description: GTFS-realtime alerts for all Transport for NSW operators
+  operation: GetAll
+  spec: openapi/opendata-transport-nsw-gov-au-gtfs-realtime-alerts-v2-openapi.yml
+  method: GET
+  path: /v2/gtfs/alerts/all
+  readOnlyHint: true
+- name: get_historical_data
+  description: Retrieves Historical Data
+  operation: GetHistoricalData
+  spec: openapi/opendata-transport-nsw-gov-au-historical-traffic-openapi.yml
+  method: POST
+  path: /v1/traffic/historicaldata
+  readOnlyHint: false
+- name: get_traffic_camera
+  description: Image URL, GPS coordinates, and view description
+  operation: GetTrafficCamera
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-cameras-openapi.yml
+  method: GET
+  path: /v1/live/cameras
+  readOnlyHint: true
+- name: get_open_alpine
+  description: Current alpine conditions
+  operation: GetOpenAlpine
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/alpine/open
+  readOnlyHint: true
+- name: get_open_fire
+  description: Current fires
+  operation: GetOpenFire
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/fire/open
+  readOnlyHint: true
+- name: get_open_flood
+  description: Current floods
+  operation: GetOpenFlood
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/flood/open
+  readOnlyHint: true
+- name: get_open_traffic_incidents
+  description: Current incidents
+  operation: GetOpenTrafficIncidents
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/incident/open
+  readOnlyHint: true
+- name: get_open_major_event
+  description: Current and planned events
+  operation: GetOpenMajorEvent
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/majorevent/open
+  readOnlyHint: true
+- name: get_open_roadwork
+  description: Current and planned roadworks
+  operation: GetOpenRoadwork
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-hazards-openapi.yml
+  method: GET
+  path: /v1/live/hazards/roadwork/open
+  readOnlyHint: true
+- name: get_traffic_site_status
+  description: Current status of the Live Traffic NSW website
+  operation: GetTrafficSiteStatus
+  spec: openapi/opendata-transport-nsw-gov-au-live-traffic-site-status-openapi.yml
+  method: GET
+  path: /v1/live/status
+  readOnlyHint: true
+- name: taxi_rank_realtime
+  description: Real time data for taxi ranks.
+  operation: realtime
+  spec: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  method: GET
+  path: /v1/taxirank/realtime
+  readOnlyHint: true
+- name: taxi_rank_info
+  description: Static data for taxi ranks eg. location, operating hours.
+  operation: info
+  spec: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  method: GET
+  path: /v1/taxirank/info
+  readOnlyHint: true
+- name: taxi_rank_history
+  description: Historical data for taxi ranks.
+  operation: history
+  spec: openapi/opendata-transport-nsw-gov-au-taxi-rank-openapi.yml
+  method: GET
+  path: /v1/taxirank/history
+  readOnlyHint: true
+- name: toll_calculator_v2_get_data
+  description: Get information about toll road pricing in NSW
+  operation: getData
+  spec: openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+  method: GET
+  path: /v2/roads/toll_calc/data
+  readOnlyHint: true
+- name: toll_calculator_v2_get_match
+  description: Returns the toll cost breakdown for the supplied route
+  operation: getMatch
+  spec: openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+  method: POST
+  path: /v2/roads/toll_calc/match
+  readOnlyHint: false
+- name: toll_calculator_v2_get_routes
+  description: Returns possible routes between an origin and destination and the toll cost breakdown for the routes
+  operation: getRoutes
+  spec: openapi/opendata-transport-nsw-gov-au-toll-calculator-v2-openapi.yml
+  method: POST
+  path: /v2/roads/toll_calc/route
+  readOnlyHint: false
+- name: addinfo_request
+  description: >-
+    Provides capability to display all public transport service status and incident information (as published from
+    the Service Alert Messaging S
+  operation: tfnsw_addinfo_request
+  spec: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  method: GET
+  path: /v1/tp/add_info
+  readOnlyHint: true
+- name: coord_request
+  description: >-
+    When given a specific geographical location, this API finds public transport stops, stations, wharfs and points
+    of interest around that loca
+  operation: tfnsw_coord_request
+  spec: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  method: GET
+  path: /v1/tp/coord
+  readOnlyHint: true
+- name: dm_request
+  description: >-
+    Provides capability to provide NSW public transport departure information from a stop, station or wharf including
+    real-time.
+  operation: tfnsw_dm_request
+  spec: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  method: GET
+  path: /v1/tp/departure_mon
+  readOnlyHint: true
+- name: stopfinder_request
+  description: >-
+    Provides capability to return all NSW public transport stop, station, wharf, points of interest and known addresses
+    to be used for auto-sugg
+  operation: tfnsw_stopfinder_request
+  spec: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  method: GET
+  path: /v1/tp/stop_finder
+  readOnlyHint: true
+- name: trip_request2
+  description: >-
+    Provides capability to provide NSW public transport trip plan options, including walking and driving legs and
+    real-time information.
+  operation: tfnsw_trip_request2
+  spec: openapi/opendata-transport-nsw-gov-au-trip-planner-openapi.yml
+  method: GET
+  path: /v1/tp/trip
+  readOnlyHint: true

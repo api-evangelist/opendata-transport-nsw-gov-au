@@ -1,0 +1,40 @@
+generated: '2026-10-21'
+method: searched
+source: https://opendata.transport.nsw.gov.au/developers/documentation
+standards:
+- id: gtfs-realtime
+  conforms: partial
+  domain_standard: true
+  evidence: 'Contracts openapi/*gtfs-realtime-* serve GTFS-realtime protocol buffers; docs: "When you call the API, the response will be returned
+    in binary format. You need to use a .proto file to convert the data" and publish the TfNSW extension 1007 (grpc/opendata-transport-nsw-gov-au-gtfs-realtime-1007-extension.proto).
+    Partial because the troubleshooting page states "The current official GTFS-realtime specification is not compatible with the Sydney Trains
+    GTFS-real-time feed. REPLACEMENT has been removed from the official GTFS-realtime specification but the Sydney Trains feed still contains
+    it."'
+  evidence_url: https://opendata.transport.nsw.gov.au/developers/troubleshooting
+- id: gtfs
+  conforms: true
+  domain_standard: true
+  evidence: GTFS schedule bundles served by openapi/opendata-transport-nsw-gov-au-timetables-complete-gtfs-openapi.yml and gtfs-schedule-v1/v2
+    contracts; documentation page links per-mode GTFS release notes.
+  evidence_url: https://opendata.transport.nsw.gov.au/developers/documentation
+- id: transxchange
+  conforms: true
+  domain_standard: true
+  evidence: openapi/opendata-transport-nsw-gov-au-timetables-complete-transxchange-openapi.yml; documentation page links "TransXChange release
+    notes" (TfNSW-TransXChange-Implementation-Specification-v2.5.12).
+  evidence_url: https://opendata.transport.nsw.gov.au/developers/documentation
+- id: rfc9457
+  conforms: false
+  evidence: Errors use a custom ErrorDetails / {code, message} JSON body, not application/problem+json (API Basics).
+  evidence_url: https://opendata.transport.nsw.gov.au/developers/api-basics
+- id: oauth2
+  conforms: false
+  evidence: '"The OAuth 2 authentication method was the old way of connecting to our APIs in the previous version of the gateway/portal ... We
+    now recommend that you only use the API key method"'
+  evidence_url: https://opendata.transport.nsw.gov.au/developers/troubleshooting
+- id: swagger-2.0
+  conforms: true
+  evidence: the document declares swagger-2.0
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations

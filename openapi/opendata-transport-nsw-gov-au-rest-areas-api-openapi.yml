@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  title: Opendata Transport Nsw Gov Au Rest Areas API
+  version: '1.0'
+  description: 'Operations tagged rest_areas across 2 of this provider''s published API definitions: rest_areas_v2.1.yaml, opendata-transport-nsw-gov-au-rest-areas-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.transport.nsw.gov.au/v1/roads
+security:
+- APIKey: []
+tags:
+- name: rest_areas
+paths:
+  /spatial:
+    get:
+      description: 'Standard SQL is accepted including aggrate functions such as count, max, min.
+
+        Order by and limit is also supported
+
+
+        Some example queries are:
+
+
+        SELECT * FROM rest_areas LIMIT 50
+
+
+        Current tables offered to users are:
+
+
+        rest_areas
+
+
+        This API is based on PostgreSQL.
+
+        You can view the official documentation for further details on query syntax.'
+      parameters:
+      - description: Select format of the return data
+        in: query
+        name: format
+        required: false
+        schema:
+          type: string
+          enum:
+          - json
+          - geojson
+          default: geojson
+      - description: Sql query you wish to execute
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+          default: 'select * from rest_areas limit 50 '
+      responses:
+        '200':
+          description: The request has been processed successfully.
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+            geojson:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: The application calling the API has not been authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '404':
+          description: The requested resource could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '500':
+          description: An internal error has occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        '503':
+          description: The server is currently unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+            geojson:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+      summary: Execute various queries on the Rest Areas API
+      tags:
+      - rest_areas
+      operationId: getSpatial
+      x-operation-id-source: derived
+    servers:
+    - url: https://api.transport.nsw.gov.au/v1/roads
+components:
+  schemas:
+    ErrorDetails:
+      description: Error response
+      example:
+        ErrorDetails:
+          ErrorDateTime: XXXXXXXXXX
+          Message: XXXXXXXXXX
+          RequestedMethod: XXXXXXXXXX
+          RequestedUrl: XXXXXXXXXX
+          TransactionId: XXXXXXXXXX
+      properties:
+        ErrorDateTime:
+          type: string
+        Message:
+          type: string
+        RequestedMethod:
+          type: string
+        RequestedUrl:
+          type: string
+        TransactionId:
+          type: string
+      required:
+      - TransactionId
+      - ErrorDateTime
+      - Message
+      - RequestedUrl
+      - RequestedMethod
+      type: object
+  securitySchemes:
+    APIKey:
+      description: 'Expected Format: apikey [TOKEN]'
+      in: header
+      name: Authorization
+      type: apiKey
+x-refined-from:
+- rest_areas_v2.1.yaml
+- opendata-transport-nsw-gov-au-rest-areas-openapi.yml
